@@ -11,379 +11,427 @@
 <meta name="description" content="Clínica Élite Palma · Odontología, medicina estética y trasplante capilar en Palma de Mallorca.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
 <style>
-/* Layout: arcos mallorquines. Página de piedra de marés, paneles enmarcados en arco,
-   una única franja oscura color "mar de noche" para la reserva. Dorado champán solo en detalles. */
+/* Layout: clínica blanca y luminosa. Fotografía real en bloques redondeados,
+   mucho aire, un único color de marca (petróleo clínico) y gris frío para las superficies. */
 :root {
-  --stone: #EDEAE3;      /* marés claro: fondo */
-  --stone-2: #E2DDD2;    /* marés en sombra: superficies */
-  --paper: #F7F5F0;      /* tarjetas */
-  --ink: #15191B;        /* texto */
-  --ink-soft: #4A5154;   /* texto secundario */
-  --line: #CFC8BA;       /* filetes */
-  --sea: #173F4A;        /* mar de noche: franja de reserva */
-  --sea-2: #22586599;
-  --gold: #A9834A;       /* champán */
-  --gold-soft: #D9C29A;
-  --on-sea: #F3EFE6;
-  --ok: #2F6B4F;
+  --bg: #FFFFFF;
+  --bg-2: #F3F6F7;
+  --bg-3: #E7EEF0;
+  --ink: #0C1C24;
+  --ink-2: #52646C;
+  --line: #E0E7EA;
+  --brand: #0D5F6E;
+  --brand-ink: #08414C;
+  --brand-tint: #E3F0F2;
+  --gold: #B69A64;
+  --star: #F2B01E;
+  --ok: #1F8A5B;
 
-  --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --f-body: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-
-  --s-xs: .78rem; --s-sm: .9rem; --s-md: 1rem; --s-lg: 1.25rem;
-  --s-xl: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
-  --s-2xl: clamp(2.2rem, 1.4rem + 3.4vw, 4rem);
-  --s-hero: clamp(2.8rem, 1.2rem + 6.4vw, 6.4rem);
-  --gutter: max(20px, env(safe-area-inset-left, 0px));
-  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --stone: #111517; --stone-2: #181E21; --paper: #1C2326; --ink: #ECE7DC; --ink-soft: #A9ADA8;
-    --line: #2E3739; --sea: #0B2A32; --sea-2: #1B4B5699; --gold: #C9A46A; --gold-soft: #7A6545;
-    --on-sea: #F1ECE1; --ok: #6FB28F; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --stone: #111517; --stone-2: #181E21; --paper: #1C2326; --ink: #ECE7DC; --ink-soft: #A9ADA8;
-  --line: #2E3739; --sea: #0B2A32; --sea-2: #1B4B5699; --gold: #C9A46A; --gold-soft: #7A6545;
-  --on-sea: #F1ECE1; --ok: #6FB28F; color-scheme: dark;
+  --f: "Plus Jakarta Sans", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --s-xs: .78rem; --s-sm: .9rem; --s-md: 1rem; --s-lg: 1.15rem;
+  --s-h3: clamp(1.25rem, 1.1rem + .5vw, 1.5rem);
+  --s-h2: clamp(1.9rem, 1.3rem + 2.2vw, 3rem);
+  --s-h1: clamp(2.4rem, 1.4rem + 3.8vw, 4.4rem);
+  --r: 22px; --r-sm: 14px;
+  --gl: max(20px, env(safe-area-inset-left, 0px));
+  --gr: max(20px, env(safe-area-inset-right, 0px));
+  --shadow: 0 1px 2px rgba(12,28,36,.04), 0 12px 32px -12px rgba(12,28,36,.14);
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { background: var(--stone); color: var(--ink); font-family: var(--f-body); font-size: var(--s-md); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--stone); }
-h1, h2, h3 { font-family: var(--f-display); font-weight: 400; line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f); font-size: var(--s-md); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+h1, h2, h3, h4 { margin: 0; font-weight: 500; line-height: 1.08; letter-spacing: -.03em; text-wrap: balance; }
 p { margin: 0; }
 a { color: inherit; }
+img, video { display: block; max-width: 100%; }
 button { font: inherit; color: inherit; cursor: pointer; }
-:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
-.wrap { max-width: 1220px; margin-inline: auto; padding-left: var(--gutter); padding-right: var(--gutter-r); }
-.eyebrow { font-family: var(--f-mono); font-size: var(--s-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
-.lead { font-size: var(--s-lg); color: var(--ink-soft); max-width: 58ch; }
-.it { font-style: italic; color: var(--gold); }
-.section { padding-block: clamp(64px, 9vw, 128px); }
-.section-head { display: grid; gap: 18px; max-width: 760px; margin-bottom: clamp(32px, 5vw, 56px); }
-.section-head h2 { font-size: var(--s-2xl); }
-.tag-demo { font-family: var(--f-mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); border: 1px dashed var(--line); padding: 2px 8px; border-radius: 99px; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1240px; margin-inline: auto; padding-left: var(--gl); padding-right: var(--gr); }
+.label { font-size: var(--s-xs); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--brand); }
+.lead { font-size: var(--s-lg); color: var(--ink-2); max-width: 56ch; }
+.muted { color: var(--ink-2); }
+.section { padding-block: clamp(64px, 8vw, 112px); }
+.alt { background: var(--bg-2); }
+.head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(28px, 4vw, 48px); }
+.head > div:not(.filters) { display: grid; gap: 14px; max-width: 680px; }
+.head h2 { font-size: var(--s-h2); }
+.note { display: inline-block; font-size: .7rem; font-weight: 500; color: var(--ink-2); background: var(--bg-3); padding: 3px 10px; border-radius: 99px; }
 
-.btn { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--ink); background: var(--ink); color: var(--stone); padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: var(--s-sm); letter-spacing: .02em; text-decoration: none; transition: transform .25s ease, background .25s ease, color .25s ease; }
-.btn:hover { transform: translateY(-2px); background: var(--gold); border-color: var(--gold); color: var(--ink); }
-.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
-.btn.ghost:hover { border-color: var(--gold); background: transparent; color: var(--gold); }
-.btn .arr { transition: transform .25s ease; }
-.btn:hover .arr { transform: translateX(4px); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid var(--brand); background: var(--brand); color: #fff; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: var(--s-sm); text-decoration: none; transition: background .2s ease, border-color .2s ease, color .2s ease; white-space: nowrap; }
+.btn:hover { background: var(--brand-ink); border-color: var(--brand-ink); }
+.btn.line { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.line:hover { border-color: var(--ink); }
+.btn.white { background: #fff; color: var(--ink); border-color: #fff; }
+.btn.white:hover { background: var(--brand-tint); border-color: var(--brand-tint); }
+.link { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; font-size: var(--s-sm); color: var(--brand); text-decoration: none; }
+.link span { display: inline-flex; transition: transform .2s ease; }
+.link:hover span, .treat:hover .link span { transform: translateX(4px); }
+.ico { width: 18px; height: 18px; flex: none; }
 
-/* Barra superior */
-.topbar { background: var(--ink); color: var(--stone); font-size: var(--s-xs); }
-.topbar .wrap { display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: space-between; padding-block: 8px; }
-.topbar span { opacity: .85; }
-header.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--stone) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+/* Barra de promoción */
+.promo { background: var(--brand-ink); color: #fff; font-size: var(--s-xs); }
+.promo .wrap { display: flex; justify-content: space-between; gap: 6px 24px; flex-wrap: wrap; padding-block: 9px; }
+.promo b { font-weight: 600; }
+.promo span { opacity: .88; }
+
+/* Cabecera */
+header.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 14px; }
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.logo-mark { width: 40px; height: 46px; flex: none; }
-.logo-text { display: grid; line-height: 1; }
-.logo-text b { font-family: var(--f-display); font-weight: 500; font-size: 1.5rem; letter-spacing: .04em; }
-.logo-text small { font-family: var(--f-mono); font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: var(--ink-soft); margin-top: 4px; }
-.nav-links { display: flex; gap: 28px; font-size: var(--s-sm); font-weight: 500; }
-.nav-links a { text-decoration: none; position: relative; }
-.nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 1px; background: var(--gold); transition: right .3s ease; }
-.nav-links a:hover::after { right: 0; }
-.nav-cta { display: flex; align-items: center; gap: 12px; }
-.lang { display: flex; border: 1px solid var(--line); border-radius: 99px; overflow: hidden; font-family: var(--f-mono); font-size: .7rem; }
-.lang button { background: none; border: 0; padding: 6px 10px; color: var(--ink-soft); }
-.lang button[aria-pressed="true"] { background: var(--ink); color: var(--stone); }
-.theme-t { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: none; display: grid; place-items: center; }
-.menu-t { display: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: none; }
-@media (max-width: 980px) {
-  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--stone); border-bottom: 1px solid var(--line); padding: 8px var(--gutter-r) 16px var(--gutter); }
-  .nav-links.open { display: flex; }
-  .nav-links a { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
-  .menu-t { display: grid; place-items: center; }
-  .nav-cta .btn { display: none; }
+.logo-m { width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 1.05rem; position: relative; }
+.logo-m::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; border: 1px solid var(--gold); opacity: .8; }
+.logo-t { display: grid; line-height: 1.1; }
+.logo-t b { font-weight: 600; font-size: 1.12rem; letter-spacing: .14em; }
+.logo-t small { font-size: .62rem; letter-spacing: .26em; text-transform: uppercase; color: var(--ink-2); }
+.menu { display: flex; gap: 28px; font-size: var(--s-sm); font-weight: 500; }
+.menu a { text-decoration: none; color: var(--ink-2); transition: color .2s; }
+.menu a:hover { color: var(--ink); }
+.nav-r { display: flex; align-items: center; gap: 14px; }
+.tel { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: var(--s-sm); text-decoration: none; white-space: nowrap; }
+.lang { display: flex; gap: 2px; font-size: .72rem; font-weight: 600; }
+.lang button { background: none; border: 0; padding: 6px 7px; color: var(--ink-2); border-radius: 6px; }
+.lang button[aria-pressed="true"] { color: var(--ink); background: var(--bg-2); }
+.burger { display: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: #fff; place-items: center; }
+@media (max-width: 1100px) {
+  .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: #fff; border-bottom: 1px solid var(--line); padding: 8px var(--gr) 18px var(--gl); box-shadow: var(--shadow); }
+  .menu.open { display: flex; }
+  .menu a { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; color: var(--ink); }
+  .burger { display: grid; }
+  .tel { display: none; }
 }
-@media (max-width: 560px) { .lang { display: none; } }
+@media (max-width: 600px) { .nav-r .btn, .lang { display: none; } }
 
 /* Hero */
-.hero { position: relative; overflow: hidden; }
-.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(48px, 7vw, 96px) clamp(56px, 7vw, 104px); }
-.hero h1 { font-size: var(--s-hero); line-height: .98; letter-spacing: -.025em; }
-.hero h1 em { font-style: italic; color: var(--gold); }
-.hero-copy { display: grid; gap: 28px; min-width: 0; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.trust { display: flex; flex-wrap: wrap; gap: 14px 32px; padding-top: 24px; border-top: 1px solid var(--line); }
-.trust div { display: grid; gap: 2px; }
-.trust b { font-family: var(--f-display); font-size: 1.9rem; font-weight: 400; line-height: 1; }
-.trust span { font-size: var(--s-xs); color: var(--ink-soft); }
-.arch-frame { position: relative; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 999px 999px 18px 18px; overflow: hidden; background: var(--sea); isolation: isolate; }
-.arch-frame canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-.arch-frame .ring { position: absolute; inset: 14px; border: 1px solid color-mix(in srgb, var(--gold-soft) 70%, transparent); border-radius: 999px 999px 10px 10px; pointer-events: none; }
-.arch-caption { position: absolute; left: 22px; right: 22px; bottom: 22px; display: flex; justify-content: space-between; align-items: end; gap: 12px; color: #F3EFE6; font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
-.arch-caption b { font-family: var(--f-display); font-size: 1.6rem; letter-spacing: 0; text-transform: none; font-weight: 400; font-style: italic; }
-.float-card { position: absolute; left: -28px; top: 18%; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; display: flex; gap: 12px; align-items: center; box-shadow: 0 20px 40px -24px rgba(0,0,0,.35); font-size: var(--s-sm); animation: bob 6s ease-in-out infinite; }
-.float-card .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 25%, transparent); }
-@keyframes bob { 50% { transform: translateY(-8px); } }
-.hero-visual { position: relative; min-width: 0; }
-@media (max-width: 880px) {
-  .hero .wrap { grid-template-columns: 1fr; }
-  .hero-visual { max-width: 420px; justify-self: center; width: 100%; }
-  .float-card { left: 8px; }
+.hero .wrap { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(36px, 5vw, 72px) clamp(48px, 6vw, 88px); }
+.hero-c { display: grid; gap: 26px; min-width: 0; }
+.pill { display: inline-flex; align-items: center; gap: 10px; justify-self: start; background: var(--brand-tint); color: var(--brand-ink); font-size: var(--s-xs); font-weight: 600; padding: 7px 14px; border-radius: 99px; }
+.pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--brand); }
+.hero h1 { font-size: var(--s-h1); letter-spacing: -.04em; }
+.hero h1 span { color: var(--brand); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.g-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-top: 22px; border-top: 1px solid var(--line); font-size: var(--s-sm); }
+.g-badge { display: flex; align-items: center; gap: 10px; }
+.g-badge b { font-size: 1.4rem; font-weight: 600; letter-spacing: -.02em; }
+.stars { color: var(--star); letter-spacing: 1px; }
+.avatars { display: flex; }
+.avatars img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; margin-left: -8px; }
+.avatars img:first-child { margin-left: 0; }
+.hero-m { position: relative; min-width: 0; }
+.hero-img { border-radius: 28px; overflow: hidden; aspect-ratio: 5 / 5.6; max-width: 100%; background: var(--bg-3); }
+.hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.card-f { position: absolute; background: rgba(255,255,255,.96); border-radius: 18px; box-shadow: var(--shadow); padding: 16px 18px; font-size: var(--s-sm); }
+.card-f.a { left: -28px; bottom: 32px; display: grid; gap: 8px; min-width: 230px; }
+.card-f.a ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.card-f.a li { display: flex; gap: 8px; align-items: center; color: var(--ink-2); }
+.chk { width: 18px; height: 18px; border-radius: 50%; background: var(--brand-tint); color: var(--brand); display: inline-grid; place-items: center; font-size: .62rem; font-weight: 700; flex: none; }
+.card-f.b { right: 20px; top: 20px; display: flex; gap: 10px; align-items: center; }
+.live { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(31,138,91,.18); flex: none; }
+@media (max-width: 900px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero-m { order: -1; }
+  .hero-img { aspect-ratio: 4 / 3.4; }
+  .card-f.a { left: 12px; bottom: 12px; min-width: 0; }
+  .card-f.b { right: 12px; top: 12px; }
 }
+@media (max-width: 480px) { .card-f.a { display: none; } }
 
-/* Marquesina */
-.marquee { border-block: 1px solid var(--line); overflow: hidden; padding-block: 18px; background: var(--stone-2); }
-.marquee-track { display: flex; gap: 48px; width: max-content; animation: slide 38s linear infinite; font-family: var(--f-display); font-size: 1.6rem; font-style: italic; white-space: nowrap; }
-.marquee-track span::after { content: "✦"; font-style: normal; font-size: .8rem; color: var(--gold); margin-left: 48px; vertical-align: middle; }
-@keyframes slide { to { transform: translateX(-50%); } }
+/* Franja de confianza */
+.trust { border-block: 1px solid var(--line); }
+.trust .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.trust .it { padding: 22px 20px; display: flex; gap: 14px; align-items: center; border-left: 1px solid var(--line); }
+.trust .it:first-child { border-left: 0; padding-left: 0; }
+.trust svg { width: 26px; height: 26px; color: var(--brand); flex: none; }
+.trust b { display: block; font-weight: 600; font-size: var(--s-sm); }
+.trust span { color: var(--ink-2); font-size: var(--s-xs); }
+@media (max-width: 900px) { .trust .wrap { grid-template-columns: 1fr 1fr; } .trust .it:nth-child(3) { border-left: 0; padding-left: 0; } .trust .it:nth-child(n+3) { border-top: 1px solid var(--line); } }
+@media (max-width: 480px) { .trust .wrap { grid-template-columns: 1fr; } .trust .it { border-left: 0; padding-left: 0; } .trust .it:nth-child(n+2) { border-top: 1px solid var(--line); } }
 
 /* Especialidades */
-.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
-.tab { border: 1px solid var(--line); background: transparent; padding: 10px 20px; border-radius: 99px; font-weight: 600; font-size: var(--s-sm); }
-.tab[aria-selected="true"] { background: var(--ink); color: var(--stone); border-color: var(--ink); }
-.spec { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
-.spec-art { aspect-ratio: 1 / 1; max-width: 100%; border-radius: 999px 999px 18px 18px; background: var(--stone-2); display: grid; place-items: center; position: relative; overflow: hidden; }
-.spec-art svg { width: 62%; height: auto; color: var(--gold); }
-.spec-art .big { position: absolute; bottom: 18px; left: 22px; font-family: var(--f-mono); font-size: var(--s-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
-.spec-body { display: grid; gap: 22px; min-width: 0; }
-.spec-body h3 { font-size: var(--s-xl); }
-.treat-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
-.treat-list li { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: baseline; transition: padding .3s ease; }
-.treat-list li:hover { padding-left: 10px; }
-.treat-list b { font-weight: 600; font-size: 1.05rem; }
-.treat-list p { grid-column: 1 / -1; color: var(--ink-soft); font-size: var(--s-sm); }
-.treat-list .dur { font-family: var(--f-mono); font-size: var(--s-xs); color: var(--gold); white-space: nowrap; }
-@media (max-width: 820px) { .spec { grid-template-columns: 1fr; } .spec-art { max-width: 360px; } }
+.units { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.unit { position: relative; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%; color: #fff; text-decoration: none; display: flex; flex-direction: column; justify-content: end; isolation: isolate; }
+.unit img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.unit::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(8,30,38,.25) 0%, rgba(8,30,38,0) 25%, rgba(8,30,38,0) 40%, rgba(8,30,38,.85) 100%); }
+.unit:hover img { transform: scale(1.04); }
+.unit-b { padding: 26px; display: grid; gap: 12px; }
+.unit h3 { font-size: 1.7rem; }
+.unit ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.unit li { font-size: .75rem; font-weight: 500; padding: 5px 11px; border-radius: 99px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.3); }
+.unit .go { position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; border-radius: 50%; background: #fff; color: var(--ink); display: grid; place-items: center; transition: transform .3s; }
+.unit:hover .go { transform: rotate(45deg); }
+.unit .tag { position: absolute; top: 30px; left: 24px; font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+@media (max-width: 900px) { .units { grid-template-columns: minmax(0, 1fr); } .unit { aspect-ratio: 16 / 11; } }
+@media (max-width: 560px) { .unit { aspect-ratio: 1 / 1.15; } }
 
-/* Simuladores */
-.sims { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.sim { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: clamp(20px, 3vw, 36px); display: grid; gap: 20px; align-content: start; min-width: 0; }
-.sim-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; flex-wrap: wrap; }
-.sim h3 { font-size: var(--s-xl); }
-.compare { position: relative; aspect-ratio: 16 / 9; max-width: 100%; border-radius: 16px; overflow: hidden; background: #3a1f24; user-select: none; touch-action: none; cursor: ew-resize; }
-.compare svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* Tratamientos */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { border: 1px solid var(--line); background: #fff; padding: 9px 18px; border-radius: 99px; font-size: var(--s-sm); font-weight: 500; color: var(--ink-2); }
+.filters button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.treats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.treat { background: #fff; border-radius: var(--r); overflow: hidden; display: grid; grid-template-rows: auto 1fr; text-decoration: none; border: 1px solid var(--line); transition: box-shadow .3s, transform .3s; }
+.treat:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.treat-i { aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; background: var(--bg-3); }
+.treat-i img { width: 100%; height: 100%; object-fit: cover; }
+.treat-b { padding: 20px; display: grid; gap: 8px; align-content: start; }
+.treat-b small { font-size: .7rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--brand); }
+.treat-b h3 { font-size: 1.15rem; letter-spacing: -.02em; }
+.treat-b p { font-size: var(--s-sm); color: var(--ink-2); }
+.treat-b .link { margin-top: 6px; }
+@media (max-width: 1100px) { .treats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .treats { grid-template-columns: minmax(0, 1fr); } }
+
+/* Vídeo */
+.film { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 21 / 9; max-width: 100%; background: var(--ink); color: #fff; display: flex; align-items: end; isolation: isolate; }
+.film video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.film::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(8,30,38,.85), rgba(8,30,38,.3) 60%, rgba(8,30,38,0)); }
+.film-b { padding: clamp(24px, 4vw, 56px); display: grid; gap: 18px; max-width: 620px; }
+.film h2 { font-size: var(--s-h2); }
+.film p { opacity: .85; }
+.play { position: absolute; right: 24px; bottom: 24px; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); color: #fff; padding: 9px 16px; border-radius: 99px; font-size: var(--s-xs); font-weight: 600; }
+@media (max-width: 820px) { .film { aspect-ratio: auto; min-height: 480px; } .film::before { background: linear-gradient(0deg, rgba(8,30,38,.92), rgba(8,30,38,.1)); } .play { top: 20px; bottom: auto; } }
+
+/* Tecnología */
+.tech { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.tech-img { border-radius: var(--r); overflow: hidden; aspect-ratio: 1 / 1; max-width: 100%; position: relative; }
+.tech-img img { width: 100%; height: 100%; object-fit: cover; }
+.tech-img .card-f { left: 20px; bottom: 20px; display: flex; gap: 12px; align-items: center; }
+.tech-c { display: grid; gap: 22px; min-width: 0; }
+.tech-c h2 { font-size: var(--s-h2); }
+.tech-list { list-style: none; padding: 0; margin: 0; display: grid; }
+.tech-list li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); }
+.tech-list li:last-child { border-bottom: 1px solid var(--line); }
+.ic { width: 44px; height: 44px; border-radius: 12px; background: var(--brand-tint); color: var(--brand); display: grid; place-items: center; }
+.tech-list b { font-weight: 600; display: block; }
+.tech-list span { color: var(--ink-2); font-size: var(--s-sm); }
+@media (max-width: 900px) { .tech { grid-template-columns: minmax(0, 1fr); } .tech-img { aspect-ratio: 4 / 3; } }
+
+/* Antes y después */
+.ba { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(28px, 4vw, 56px); align-items: center; }
+.compare { position: relative; border-radius: var(--r); overflow: hidden; aspect-ratio: 3 / 2; max-width: 100%; user-select: none; touch-action: pan-y; cursor: ew-resize; background: var(--bg-3); }
+.compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 .compare .after { clip-path: inset(0 0 0 var(--pos, 50%)); }
-.compare .handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: #fff; transform: translateX(-1px); }
-.compare .handle::after { content: "⟷"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #15191B; display: grid; place-items: center; font-size: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,.3); }
-.compare .lbl { position: absolute; top: 12px; font-family: var(--f-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; background: rgba(0,0,0,.45); color: #fff; padding: 4px 10px; border-radius: 99px; }
-.compare .lbl.l { left: 12px; } .compare .lbl.r { right: 12px; }
-.shades { display: flex; flex-wrap: wrap; gap: 8px; }
-.shade { display: grid; justify-items: center; gap: 6px; background: none; border: 1px solid transparent; border-radius: 12px; padding: 8px 6px; min-width: 52px; }
-.shade i { width: 26px; height: 36px; border-radius: 8px 8px 12px 12px; border: 1px solid rgba(0,0,0,.12); display: block; }
-.shade span { font-family: var(--f-mono); font-size: .72rem; }
-.shade[aria-pressed="true"] { border-color: var(--gold); background: var(--stone-2); }
-.sim-out { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: var(--s-sm); color: var(--ink-soft); }
-.sim-out b { color: var(--ink); font-family: var(--f-mono); font-weight: 500; }
-.norwood { display: flex; flex-wrap: wrap; gap: 6px; }
-.norwood button { border: 1px solid var(--line); background: none; border-radius: 10px; padding: 8px 12px; font-family: var(--f-mono); font-size: .8rem; }
-.norwood button[aria-pressed="true"] { background: var(--ink); color: var(--stone); border-color: var(--ink); }
-.scalp { display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: center; }
-.scalp svg { width: 100%; height: auto; }
-.grafts { display: grid; gap: 6px; }
-.grafts .num { font-family: var(--f-display); font-size: clamp(2.2rem, 1.6rem + 2vw, 3.2rem); line-height: 1; font-variant-numeric: tabular-nums; }
-.grafts small { color: var(--ink-soft); font-size: var(--s-sm); }
-.meter { height: 6px; background: var(--stone-2); border-radius: 99px; overflow: hidden; }
-.meter i { display: block; height: 100%; background: var(--gold); border-radius: 99px; transition: width .5s cubic-bezier(.2,.8,.2,1); }
-@media (max-width: 900px) { .sims { grid-template-columns: 1fr; } }
-@media (max-width: 460px) { .scalp { grid-template-columns: 1fr; } .scalp svg { max-width: 180px; justify-self: center; } }
+.compare .bar { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,.25); }
+.compare .knob { position: absolute; top: 50%; left: var(--pos, 50%); transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; background: #fff; box-shadow: var(--shadow); display: grid; place-items: center; color: var(--ink); }
+.compare .tg { position: absolute; top: 16px; font-size: .72rem; font-weight: 600; background: rgba(255,255,255,.92); padding: 6px 12px; border-radius: 99px; }
+.compare .tg.l { left: 16px; } .compare .tg.r { right: 16px; }
+.ba-c { display: grid; gap: 20px; min-width: 0; }
+.ba-c h2 { font-size: var(--s-h2); }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.facts div { background: #fff; border: 1px solid var(--line); border-radius: var(--r-sm); padding: 14px 16px; }
+.facts small { display: block; color: var(--ink-2); font-size: var(--s-xs); }
+.facts b { font-weight: 600; }
+@media (max-width: 900px) { .ba { grid-template-columns: minmax(0, 1fr); } }
 
-/* Primera visita: secuencia real */
-.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; counter-reset: s; border-top: 1px solid var(--line); }
-.steps li { padding: 24px 20px 0 0; display: grid; gap: 10px; align-content: start; position: relative; }
-.steps li::before { counter-increment: s; content: "0" counter(s); font-family: var(--f-mono); font-size: var(--s-xs); color: var(--gold); }
-.steps li::after { content: ""; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
-.steps b { font-family: var(--f-display); font-size: 1.35rem; font-weight: 400; }
-.steps p { color: var(--ink-soft); font-size: var(--s-sm); }
-@media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; row-gap: 28px; } }
-@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
-
-/* Reserva */
-.booking { background: var(--sea); color: var(--on-sea); position: relative; overflow: hidden; }
-.booking::before { content: ""; position: absolute; right: -10%; top: -30%; width: 60%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--sea-2), transparent 70%); pointer-events: none; }
-.booking .wrap { position: relative; display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 5vw, 72px); padding-block: clamp(64px, 9vw, 120px); }
-.booking h2 { font-size: var(--s-2xl); }
-.booking .lead { color: color-mix(in srgb, var(--on-sea) 75%, transparent); }
-.booking-info { display: grid; gap: 24px; align-content: start; min-width: 0; }
-.contact-lines { display: grid; gap: 14px; font-size: var(--s-sm); }
-.contact-lines div { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid color-mix(in srgb, var(--on-sea) 18%, transparent); }
-.contact-lines span { font-family: var(--f-mono); font-size: var(--s-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--gold-soft); }
-:root .booking .contact-lines span { color: color-mix(in srgb, var(--on-sea) 60%, var(--gold)); }
-.copy { background: none; border: 1px solid color-mix(in srgb, var(--on-sea) 30%, transparent); color: var(--on-sea); border-radius: 99px; font-size: .7rem; padding: 2px 10px; margin-left: 8px; font-family: var(--f-mono); }
-.panel { align-self: start; background: var(--paper); color: var(--ink); border-radius: 24px; padding: clamp(20px, 3vw, 32px); display: grid; gap: 22px; min-width: 0; box-shadow: 0 40px 80px -40px rgba(0,0,0,.6); }
-.progress { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.progress div { display: grid; gap: 8px; align-content: start; font-size: var(--s-xs); color: var(--ink-soft); font-weight: 600; }
-.progress div::before { content: ""; height: 3px; border-radius: 9px; background: var(--line); }
-.progress div.on { color: var(--ink); }
-.progress div.on::before { background: var(--gold); }
-.step-title { font-family: var(--f-display); font-size: 1.6rem; }
-.opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.opt { text-align: left; border: 1px solid var(--line); background: var(--stone); border-radius: 16px; padding: 16px; display: grid; gap: 4px; transition: border-color .2s, transform .2s; }
-.opt:hover { transform: translateY(-2px); border-color: var(--gold); }
-.opt[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
-.opt b { font-size: 1rem; }
-.opt small { color: var(--ink-soft); font-size: var(--s-xs); }
-select, input, textarea { width: 100%; font: inherit; color: var(--ink); background: var(--stone); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
-select:focus, input:focus, textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 25%, transparent); }
-label { display: grid; gap: 6px; font-size: var(--s-sm); font-weight: 600; }
-.days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
-.day { flex: none; width: 66px; border: 1px solid var(--line); background: var(--stone); border-radius: 14px; padding: 10px 0; display: grid; justify-items: center; gap: 2px; }
-.day small { font-size: .66rem; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-soft); }
-.day b { font-family: var(--f-display); font-size: 1.5rem; font-weight: 400; line-height: 1.1; }
-.day[aria-pressed="true"] { background: var(--ink); color: var(--stone); border-color: var(--ink); }
-.day[aria-pressed="true"] small { color: inherit; opacity: .7; }
-.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; }
-.slot { border: 1px solid var(--line); background: none; border-radius: 10px; padding: 9px 0; font-family: var(--f-mono); font-size: .85rem; font-variant-numeric: tabular-nums; }
-.slot:disabled { opacity: .35; text-decoration: line-through; cursor: not-allowed; }
-.slot[aria-pressed="true"] { background: var(--gold); border-color: var(--gold); color: #15191B; }
-.slot-group { font-family: var(--f-mono); font-size: var(--s-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.form-grid .full { grid-column: 1 / -1; }
-.chk { display: flex; gap: 10px; align-items: start; font-weight: 400; font-size: var(--s-xs); color: var(--ink-soft); }
-.chk input { width: auto; margin-top: 3px; }
-.panel-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-.summary { font-size: var(--s-sm); color: var(--ink-soft); }
-.summary b { color: var(--ink); }
-.done { text-align: center; display: grid; gap: 14px; justify-items: center; padding-block: 24px; }
-.done .check { width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); display: grid; place-items: center; font-size: 1.8rem; }
-@media (max-width: 900px) { .booking .wrap { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { .opts { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } .contact-lines div { grid-template-columns: 1fr; gap: 2px; } }
+/* Pasos */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: s; }
+.steps li { background: var(--bg-2); border-radius: var(--r); padding: 26px; display: grid; gap: 10px; align-content: start; }
+.steps li::before { counter-increment: s; content: counter(s); width: 36px; height: 36px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font-weight: 600; font-size: var(--s-sm); margin-bottom: 8px; }
+.steps b { font-size: 1.1rem; font-weight: 600; letter-spacing: -.01em; }
+.steps p { color: var(--ink-2); font-size: var(--s-sm); }
+@media (max-width: 980px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .steps { grid-template-columns: minmax(0, 1fr); } }
 
 /* Equipo */
 .team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.doc { display: grid; gap: 14px; }
-.doc-pic { aspect-ratio: 3 / 4; max-width: 100%; border-radius: 999px 999px 14px 14px; background: linear-gradient(170deg, var(--stone-2), color-mix(in srgb, var(--gold) 22%, var(--stone-2))); display: grid; place-items: center; font-family: var(--f-display); font-size: 3.4rem; font-style: italic; color: var(--gold); position: relative; overflow: hidden; }
-.doc-pic::after { content: ""; position: absolute; inset: 10px; border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent); border-radius: 999px 999px 8px 8px; }
-.doc b { font-size: 1.05rem; }
-.doc span { display: block; color: var(--ink-soft); font-size: var(--s-sm); }
-.doc small { font-family: var(--f-mono); font-size: .7rem; color: var(--gold); letter-spacing: .06em; }
-@media (max-width: 900px) { .team { grid-template-columns: 1fr 1fr; } }
+.doc { display: grid; gap: 14px; align-content: start; }
+.doc-i { aspect-ratio: 4 / 5; max-width: 100%; border-radius: var(--r); overflow: hidden; background: var(--bg-3); }
+.doc-i img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transition: transform .6s; }
+.doc:hover .doc-i img { transform: scale(1.03); }
+.doc b { font-weight: 600; font-size: 1.05rem; display: block; }
+.doc span { color: var(--ink-2); font-size: var(--s-sm); display: block; }
+.doc small { color: var(--brand); font-size: var(--s-xs); font-weight: 600; }
+@media (max-width: 980px) { .team { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Opiniones */
-.reviews > * { min-width: 0; }
-.reviews { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
-.quote { font-family: var(--f-display); font-size: clamp(1.6rem, 1.1rem + 1.8vw, 2.6rem); line-height: 1.2; font-style: italic; min-height: 5.2em; transition: opacity .4s ease; }
-.quote-by { display: flex; align-items: center; gap: 14px; margin-top: 24px; flex-wrap: wrap; }
-.quote-by b { font-weight: 600; }
-.quote-by span { color: var(--ink-soft); font-size: var(--s-sm); }
-.stars { color: var(--gold); letter-spacing: 2px; }
-.dots { display: flex; gap: 8px; margin-top: 28px; }
-.dots button { width: 28px; height: 4px; border: 0; border-radius: 9px; background: var(--line); padding: 0; }
-.dots button[aria-current="true"] { background: var(--gold); width: 48px; }
-.score { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 28px; display: grid; gap: 14px; }
-.score .n { font-family: var(--f-display); font-size: 4rem; line-height: 1; }
-.bars { display: grid; gap: 8px; font-family: var(--f-mono); font-size: .75rem; }
-.bars div { display: grid; grid-template-columns: 22px 1fr 34px; gap: 10px; align-items: center; font-variant-numeric: tabular-nums; }
-.bars i { height: 6px; border-radius: 9px; background: var(--stone-2); position: relative; overflow: hidden; }
-.bars i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--gold); border-radius: 9px; }
-@media (max-width: 820px) { .reviews { grid-template-columns: minmax(0, 1fr); } .quote { min-height: 0; } }
+.rev { display: grid; grid-template-columns: .8fr 2.2fr; gap: 20px; }
+.rev-sum { background: var(--ink); color: #fff; border-radius: var(--r); padding: 28px; display: grid; gap: 14px; align-content: start; }
+.rev-sum .n { font-size: 3.6rem; font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+.rev-sum p { opacity: .75; font-size: var(--s-sm); }
+.rev-sum .btn { justify-self: start; }
+.g-logo { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: var(--s-sm); }
+.rev-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.rcard { background: #fff; border: 1px solid var(--line); border-radius: var(--r); padding: 24px; display: grid; gap: 14px; align-content: start; }
+.rcard p { font-size: var(--s-sm); }
+.who { display: flex; gap: 12px; align-items: center; }
+.who i { width: 40px; height: 40px; border-radius: 50%; background: var(--brand-tint); color: var(--brand-ink); display: grid; place-items: center; font-style: normal; font-weight: 600; font-size: .85rem; }
+.who b { display: block; font-size: var(--s-sm); font-weight: 600; }
+.who span { font-size: var(--s-xs); color: var(--ink-2); }
+@media (max-width: 1100px) { .rev { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 820px) { .rev-list { grid-template-columns: minmax(0, 1fr); } }
 
 /* Financiación */
-.finance { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
-.fin-card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: clamp(20px, 3vw, 36px); display: grid; gap: 18px; min-width: 0; }
-input[type="range"] { padding: 0; border: 0; background: none; accent-color: var(--gold); box-shadow: none; }
-.fin-out { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-.fin-out .n { font-family: var(--f-display); font-size: clamp(2.6rem, 2rem + 2vw, 3.6rem); line-height: 1; font-variant-numeric: tabular-nums; }
-.row-vals { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: var(--s-sm); font-variant-numeric: tabular-nums; }
-.perks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
-.perks li { padding: 16px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 28px 1fr; gap: 10px; }
-.perks li::before { content: "✦"; color: var(--gold); }
-@media (max-width: 820px) { .finance { grid-template-columns: minmax(0, 1fr); } }
+.fin { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 64px); align-items: center; }
+.fin-c { display: grid; gap: 20px; min-width: 0; }
+.fin-c h2 { font-size: var(--s-h2); }
+.ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.ticks li { display: flex; gap: 10px; align-items: center; }
+.calc { background: #fff; border-radius: var(--r); padding: clamp(22px, 3vw, 34px); box-shadow: var(--shadow); display: grid; gap: 16px; min-width: 0; }
+.calc label { font-weight: 600; font-size: var(--s-sm); display: flex; justify-content: space-between; gap: 12px; }
+.calc output { color: var(--brand); font-variant-numeric: tabular-nums; }
+input[type="range"] { width: 100%; accent-color: var(--brand); }
+.fee { display: flex; align-items: baseline; gap: 8px; padding-top: 18px; border-top: 1px solid var(--line); }
+.fee b { font-size: clamp(2.4rem, 2rem + 1.6vw, 3.2rem); font-weight: 500; letter-spacing: -.04em; font-variant-numeric: tabular-nums; line-height: 1; }
+@media (max-width: 900px) { .fin { grid-template-columns: minmax(0, 1fr); } }
+
+/* Reserva */
+.book { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
+.book-c { display: grid; gap: 22px; min-width: 0; }
+.book-c h2 { font-size: var(--s-h2); }
+.panel { background: #fff; border: 1px solid var(--line); border-radius: var(--r); padding: clamp(20px, 3vw, 32px); display: grid; gap: 22px; min-width: 0; box-shadow: var(--shadow); }
+.prog { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.prog div { display: grid; gap: 8px; align-content: start; font-size: var(--s-xs); font-weight: 600; color: var(--ink-2); }
+.prog div::before { content: ""; height: 4px; border-radius: 9px; background: var(--bg-3); }
+.prog .on { color: var(--ink); }
+.prog .on::before { background: var(--brand); }
+.st-t { font-size: 1.35rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 14px; }
+.opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.opt { text-align: left; border: 1px solid var(--line); background: #fff; border-radius: var(--r-sm); padding: 16px; display: grid; gap: 4px; align-content: start; transition: border-color .2s, background .2s; }
+.opt:hover { border-color: var(--ink-2); }
+.opt[aria-pressed="true"] { border-color: var(--brand); background: var(--brand-tint); box-shadow: inset 0 0 0 1px var(--brand); }
+.opt b { font-weight: 600; }
+.opt small { color: var(--ink-2); font-size: var(--s-xs); }
+.fld { display: grid; gap: 6px; font-size: var(--s-sm); font-weight: 600; }
+select, input[type="text"], input[type="tel"], input[type="email"], textarea { width: 100%; font: inherit; font-weight: 400; color: var(--ink); background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px; }
+select:focus, input:focus, textarea:focus { outline: none; border-color: var(--brand); background: #fff; box-shadow: 0 0 0 3px var(--brand-tint); }
+.days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; }
+.day { flex: none; width: 64px; border: 1px solid var(--line); background: #fff; border-radius: var(--r-sm); padding: 10px 0; display: grid; justify-items: center; gap: 2px; }
+.day small { font-size: .66rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+.day b { font-size: 1.3rem; font-weight: 600; line-height: 1.15; }
+.day[aria-pressed="true"] { background: var(--brand); color: #fff; border-color: var(--brand); }
+.day[aria-pressed="true"] small { color: inherit; opacity: .8; }
+.sg { font-size: var(--s-xs); font-weight: 600; color: var(--ink-2); text-transform: uppercase; letter-spacing: .1em; }
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(74px, 1fr)); gap: 8px; }
+.slot { border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: 9px 0; font-size: .85rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.slot:hover:not(:disabled) { border-color: var(--brand); }
+.slot:disabled { color: #A9B6BB; background: var(--bg-2); cursor: not-allowed; text-decoration: line-through; }
+.slot[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form .full { grid-column: 1 / -1; }
+.consent { display: flex; gap: 10px; align-items: start; font-size: var(--s-xs); color: var(--ink-2); }
+.consent input { margin-top: 3px; accent-color: var(--brand); }
+.foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--line); }
+.sum { font-size: var(--s-sm); color: var(--ink-2); }
+.sum b { color: var(--ink); font-weight: 600; }
+.done { text-align: center; display: grid; gap: 12px; justify-items: center; padding-block: 20px; }
+.done .ok { width: 64px; height: 64px; border-radius: 50%; background: #E3F4EC; color: var(--ok); display: grid; place-items: center; }
+.done h3 { font-size: 1.5rem; }
+@media (max-width: 980px) { .book { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) { .opts, .form { grid-template-columns: minmax(0, 1fr); } }
+
+/* Contacto */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.c-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r); padding: clamp(22px, 3vw, 34px); display: grid; gap: 20px; align-content: start; min-width: 0; }
+.c-card h3 { font-size: var(--s-h3); }
+.c-row { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+.c-row small { display: block; color: var(--ink-2); font-size: var(--s-xs); }
+.c-row b { font-weight: 600; overflow-wrap: anywhere; }
+.copy { margin-left: 8px; border: 1px solid var(--line); background: #fff; border-radius: 99px; padding: 2px 10px; font-size: .7rem; font-weight: 600; color: var(--ink-2); vertical-align: 2px; }
+.hours { width: 100%; border-collapse: collapse; font-size: var(--s-sm); font-variant-numeric: tabular-nums; }
+.hours td { padding: 11px 0; border-bottom: 1px solid var(--line); }
+.hours td:last-child { text-align: right; color: var(--ink-2); }
+.hours tr.today td { font-weight: 600; color: var(--brand); }
+.open-now { display: inline-flex; align-items: center; gap: 8px; font-size: var(--s-xs); font-weight: 600; padding: 5px 12px; border-radius: 99px; background: #E3F4EC; color: var(--ok); }
+.open-now.closed { background: var(--bg-3); color: var(--ink-2); }
+.open-now.closed .live { background: #9AA8AE; box-shadow: none; }
+@media (max-width: 900px) { .contact { grid-template-columns: minmax(0, 1fr); } }
 
 /* FAQ */
-.faq { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(24px, 4vw, 64px); }
+.faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(24px, 4vw, 64px); }
 .faq details { border-bottom: 1px solid var(--line); }
 .faq details:first-of-type { border-top: 1px solid var(--line); }
-.faq summary { list-style: none; cursor: pointer; padding: 22px 0; display: flex; justify-content: space-between; gap: 20px; font-weight: 600; font-size: 1.05rem; }
+.faq summary { list-style: none; cursor: pointer; padding: 22px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-weight: 600; }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after { content: "+"; font-family: var(--f-display); font-size: 1.6rem; line-height: 1; color: var(--gold); transition: transform .3s ease; }
+.faq summary::after { content: ""; width: 30px; height: 30px; flex: none; border-radius: 50%; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C1C24' stroke-width='2'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center / 14px no-repeat; border: 1px solid var(--line); transition: transform .3s; }
 .faq details[open] summary::after { transform: rotate(45deg); }
-.faq details p { padding-bottom: 22px; color: var(--ink-soft); max-width: 62ch; }
-@media (max-width: 820px) { .faq { grid-template-columns: 1fr; } }
+.faq details p { padding-bottom: 22px; color: var(--ink-2); max-width: 62ch; }
+@media (max-width: 900px) { .faq { grid-template-columns: minmax(0, 1fr); } }
 
-/* Instagram */
-.ig-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
-.ig { aspect-ratio: 1; max-width: 100%; border-radius: 12px; position: relative; overflow: hidden; text-decoration: none; display: grid; place-items: end start; padding: 12px; color: #F3EFE6; font-size: .75rem; font-weight: 600; }
-.ig::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.0); transition: background .3s; }
-.ig:hover::before { background: rgba(0,0,0,.25); }
-.ig span { position: relative; }
-@media (max-width: 820px) { .ig-grid { grid-template-columns: repeat(3, 1fr); } }
+/* CTA final + footer */
+.cta-band { background: var(--brand); color: #fff; border-radius: 28px; padding: clamp(32px, 5vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.cta-band h2 { font-size: var(--s-h2); }
+.cta-band p { opacity: .82; margin-top: 10px; }
+.cta-band .btn:not(.white) { border-color: rgba(255,255,255,.45); background: transparent; }
+.cta-band .btn:not(.white):hover { background: rgba(255,255,255,.1); }
+footer { background: var(--ink); color: #fff; margin-top: clamp(64px, 8vw, 112px); }
+footer .wrap { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; padding-block: 64px 32px; }
+footer h4 { font-size: var(--s-xs); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #8FB5BD; margin-bottom: 16px; }
+footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; font-size: var(--s-sm); color: #C3D0D4; }
+footer .logo-t small { color: #9FB0B6; }
+footer .logo-m { background: #fff; color: var(--ink); }
+.legal { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255,255,255,.12); padding-top: 24px; font-size: var(--s-xs); color: #9FB0B6; }
+@media (max-width: 900px) { footer .wrap { grid-template-columns: 1fr 1fr; } footer .wrap > :first-child { grid-column: 1 / -1; } }
 
-/* Footer */
-footer { background: var(--ink); color: var(--stone); }
-footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; padding-block: 64px 32px; }
-footer h4 { font-family: var(--f-mono); font-size: var(--s-xs); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; font-weight: 400; }
-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: var(--s-sm); opacity: .85; }
-footer .big { font-family: var(--f-display); font-size: clamp(2.4rem, 1.4rem + 4vw, 5rem); line-height: 1; font-style: italic; }
-.legal { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid color-mix(in srgb, var(--stone) 18%, transparent); padding-top: 24px; font-size: var(--s-xs); opacity: .7; }
-@media (max-width: 820px) { footer .wrap { grid-template-columns: 1fr 1fr; } footer .wrap > :first-child { grid-column: 1 / -1; } }
+/* Acciones flotantes */
+.wa { position: fixed; right: calc(22px + env(safe-area-inset-right, 0px)); bottom: calc(22px + env(safe-area-inset-bottom, 0px)); z-index: 70; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 14px 30px -10px rgba(0,0,0,.4); text-decoration: none; }
+.mbar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; background: rgba(255,255,255,.97); border-top: 1px solid var(--line); padding: 10px var(--gr) calc(10px + env(safe-area-inset-bottom, 0px)) var(--gl); gap: 8px; grid-template-columns: 1fr 1fr 1.3fr; }
+.mbar a { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 0; border-radius: 99px; font-weight: 600; font-size: .85rem; text-decoration: none; border: 1px solid var(--line); white-space: nowrap; }
+.mbar a.p { background: var(--brand); color: #fff; border-color: var(--brand); }
+@media (max-width: 760px) { .mbar { display: grid; } .wa { display: none; } footer { padding-bottom: 72px; } }
+.toast { position: fixed; left: 50%; bottom: calc(90px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); opacity: 0; visibility: hidden; background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 99px; font-size: var(--s-sm); z-index: 80; transition: all .3s ease; }
+.toast.show { transform: translate(-50%, 0); opacity: 1; visibility: visible; }
 
-/* Flotantes: WhatsApp + asistente */
-.fab { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 70; display: grid; gap: 12px; justify-items: end; }
-.fab-btn { width: 56px; height: 56px; border-radius: 50%; border: 0; display: grid; place-items: center; box-shadow: 0 14px 30px -10px rgba(0,0,0,.45); text-decoration: none; }
-.fab-wa { background: #25D366; color: #fff; }
-.fab-chat { background: var(--ink); color: var(--stone); }
-.chat { width: min(360px, calc(100vw - 40px)); background: var(--paper); border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.45); overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; max-height: min(520px, 70vh); }
-.chat-h { background: var(--ink); color: var(--stone); padding: 14px 16px; display: flex; gap: 12px; align-items: center; }
-.chat-h .av { width: 34px; height: 34px; border-radius: 50%; background: var(--gold); color: #15191B; display: grid; place-items: center; font-family: var(--f-display); font-style: italic; }
-.chat-h small { display: block; opacity: .7; font-size: .7rem; }
-.chat-h button { margin-left: auto; background: none; border: 0; color: inherit; font-size: 1.3rem; }
-.chat-b { padding: 14px; display: grid; gap: 10px; overflow-y: auto; align-content: start; font-size: var(--s-sm); }
-.msg { max-width: 85%; padding: 10px 14px; border-radius: 16px; background: var(--stone-2); }
-.msg.me { justify-self: end; background: var(--ink); color: var(--stone); }
-.chat-q { padding: 10px 14px 14px; display: flex; flex-wrap: wrap; gap: 6px; border-top: 1px solid var(--line); }
-.chat-q button { border: 1px solid var(--line); background: var(--stone); border-radius: 99px; padding: 6px 12px; font-size: .78rem; }
-.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 140%); background: var(--ink); color: var(--stone); padding: 10px 18px; border-radius: 99px; font-size: var(--s-sm); z-index: 80; transition: transform .35s ease, visibility .35s; visibility: hidden; }
-.toast.show { transform: translate(-50%, 0); visibility: visible; }
-
-/* Entrada suave: visible en reposo, sólo un ligero desplazamiento */
-.rise { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
-.rise.d1 { animation-delay: .08s; } .rise.d2 { animation-delay: .16s; } .rise.d3 { animation-delay: .24s; }
-@keyframes rise { from { transform: translateY(18px); opacity: .001; } }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-}
+.rise { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; }
+.d1 { animation-delay: .06s; } .d2 { animation-delay: .12s; } .d3 { animation-delay: .18s; }
+@keyframes rise { from { transform: translateY(14px); opacity: .001; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 </style>
 
-<div class="topbar">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 12h10"/></symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 7 12 12l8.7-5M12 22V12"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></symbol>
+  <symbol id="i-micro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5M11 8v6M8 11h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></symbol>
+  <symbol id="i-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.6 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h5.9a5 5 0 0 1-2.2 3.3v2.7h3.6c2.1-1.9 3.3-4.8 3.3-8z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.7c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.8A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.8 14.2a6.6 6.6 0 0 1 0-4.3V7H2.1a11 11 0 0 0 0 9.9z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.2-3.2A11 11 0 0 0 2.1 7l3.7 2.9C6.7 7.3 9.1 5.4 12 5.4z"/></symbol>
+</svg>
+
+<div class="promo">
   <div class="wrap">
-    <span>Carrer del Cardenal Rossell, 17 · Coll d'en Rabassa, Palma</span>
-    <span>L–V 10:00–13:30 · 16:30–20:00 · 871 951 211</span>
+    <span><b>Primera visita y diagnóstico gratuitos</b> en las tres unidades · Financiación sin intereses hasta 12 meses</span>
+    <span>Lunes a viernes · 10:00–13:30 y 16:30–20:00</span>
   </div>
 </div>
 
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="#inicio" aria-label="Clínica Élite Palma, inicio">
-      <svg class="logo-mark" viewBox="0 0 40 46" fill="none" aria-hidden="true">
-        <path d="M2 45V20C2 10 10 2 20 2s18 8 18 18v25" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M8 45V21c0-6.6 5.4-12 12-12s12 5.4 12 12v24" style="stroke:var(--gold)" stroke-width="1.5"/>
-        <path d="M15 22h10M15 29h8M15 36h10M15 22v14" stroke="currentColor" stroke-width="1.5"/>
-      </svg>
-      <span class="logo-text"><b>ÉLITE</b><small>Clínica · Palma</small></span>
+      <span class="logo-m" aria-hidden="true">É</span>
+      <span class="logo-t"><b>ÉLITE</b><small>Clínica · Palma</small></span>
     </a>
-    <nav class="nav-links" id="navLinks" aria-label="Principal">
+    <nav class="menu" id="menu" aria-label="Principal">
       <a href="#especialidades">Especialidades</a>
-      <a href="#simulador">Simulador</a>
-      <a href="#visita">Primera visita</a>
+      <a href="#tratamientos">Tratamientos</a>
+      <a href="#tecnologia">Tecnología</a>
       <a href="#equipo">Equipo</a>
       <a href="#opiniones">Opiniones</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <div class="nav-cta">
+    <div class="nav-r">
       <div class="lang" role="group" aria-label="Idioma">
         <button type="button" aria-pressed="true" data-lang="es">ES</button>
         <button type="button" aria-pressed="false" data-lang="en">EN</button>
         <button type="button" aria-pressed="false" data-lang="de">DE</button>
       </div>
-      <button class="theme-t" id="themeT" type="button" aria-label="Cambiar tema claro u oscuro">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      </button>
-      <a class="btn" href="#reserva">Pedir cita <span class="arr">→</span></a>
-      <button class="menu-t" id="menuT" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16M4 16h16"/></svg>
+      <a class="tel" href="tel:+34871951211"><svg class="ico"><use href="#i-phone"/></svg>871 951 211</a>
+      <a class="btn" href="#reserva" data-i18n="nav">Pedir cita</a>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
       </button>
     </div>
   </div>
@@ -392,381 +440,358 @@ footer .big { font-family: var(--f-display); font-size: clamp(2.4rem, 1.4rem + 4
 <main id="inicio">
   <section class="hero">
     <div class="wrap">
-      <div class="hero-copy">
-        <span class="eyebrow rise">Odontología · Medicina estética · Capilar</span>
-        <h1 class="rise d1" data-i18n="h1">Tu mejor versión, <em>en un solo lugar</em> de Palma.</h1>
-        <p class="lead rise d2" data-i18n="lead">Sonrisa, piel y cabello tratados por un mismo equipo médico. Diagnóstico personalizado, tecnología actual y resultados naturales, a cinco minutos del aeropuerto.</p>
-        <div class="hero-actions rise d3">
-          <a class="btn" href="#reserva"><span data-i18n="cta">Reservar valoración</span> <span class="arr">→</span></a>
-          <a class="btn ghost" href="#simulador" data-i18n="cta2">Probar el simulador</a>
+      <div class="hero-c">
+        <span class="pill rise"><i></i>Odontología · Medicina estética · Capilar</span>
+        <h1 class="rise d1" data-i18n="h1">Clínica dental y estética en <span>Palma de Mallorca</span></h1>
+        <p class="lead rise d2" data-i18n="lead">Un mismo equipo médico para tu sonrisa, tu piel y tu cabello. Diagnóstico digital, tratamientos personalizados y resultados naturales.</p>
+        <div class="cta-row rise d2">
+          <a class="btn" href="#reserva"><span data-i18n="cta">Pedir cita online</span> <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <a class="btn line" href="#tratamientos" data-i18n="cta2">Ver tratamientos</a>
         </div>
-        <div class="trust rise d3">
-          <div><b>3</b><span>especialidades bajo un techo</span></div>
-          <div><b>FUE</b><span>técnica capilar más solicitada</span></div>
-          <div><b>ES · EN · DE</b><span>atención en tu idioma</span></div>
+        <div class="g-row rise d3">
+          <div class="avatars"><img src="assets/img/paciente.webp" alt=""><img src="assets/img/senior.webp" alt=""><img src="assets/img/capilar.webp" alt=""></div>
+          <div class="g-badge"><svg width="22" height="22"><use href="#i-g"/></svg><b>4,9</b><span class="stars">★★★★★</span></div>
+          <span class="muted">Valoración en Google <span class="note">dato de ejemplo</span></span>
         </div>
       </div>
-      <div class="hero-visual rise d2">
-        <div class="arch-frame">
-          <canvas id="sea" aria-hidden="true"></canvas>
-          <div class="ring"></div>
-          <div class="arch-caption"><span>Palma de Mallorca<br>39.55° N · 2.67° E</span><b>Élite</b></div>
-        </div>
-        <div class="float-card" aria-live="polite">
-          <span class="dot"></span>
-          <div><b id="nextSlot">Próximo hueco: mañana 10:30</b><br><span style="color:var(--ink-soft);font-size:.78rem">Valoración gratuita</span></div>
+      <div class="hero-m rise d1">
+        <div class="hero-img"><img src="assets/img/hero.webp" alt="Paciente sonriendo al aire libre" fetchpriority="high"></div>
+        <div class="card-f b"><span class="live"></span><span id="nextSlot"><b>Cita disponible mañana</b></span></div>
+        <div class="card-f a">
+          <b>Tu primera visita incluye</b>
+          <ul>
+            <li><span class="chk">✓</span>Exploración con el especialista</li>
+            <li><span class="chk">✓</span>Diagnóstico digital</li>
+            <li><span class="chk">✓</span>Presupuesto cerrado por escrito</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Carillas de porcelana</span><span>Ácido hialurónico</span><span>Injerto capilar FUE</span><span>Blanqueamiento</span><span>Implantes</span><span>Rejuvenecimiento facial</span><span>Ortodoncia invisible</span><span>PRP capilar</span>
-      <span>Carillas de porcelana</span><span>Ácido hialurónico</span><span>Injerto capilar FUE</span><span>Blanqueamiento</span><span>Implantes</span><span>Rejuvenecimiento facial</span><span>Ortodoncia invisible</span><span>PRP capilar</span>
+  <section class="trust" aria-label="Garantías">
+    <div class="wrap">
+      <div class="it"><svg><use href="#i-shield"/></svg><p><b>Equipo médico colegiado</b><span>Odontología, medicina y cirugía capilar</span></p></div>
+      <div class="it"><svg><use href="#i-card"/></svg><p><b>Financiación a medida</b><span>Sin intereses hasta 12 meses</span></p></div>
+      <div class="it"><svg><use href="#i-globe"/></svg><p><b>Español · English · Deutsch</b><span>Atención en tu idioma</span></p></div>
+      <div class="it"><svg><use href="#i-pin"/></svg><p><b>Coll d'en Rabassa</b><span>A 5 minutos del aeropuerto</span></p></div>
     </div>
-  </div>
+  </section>
 
   <section class="section" id="especialidades">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Especialidades</span>
-        <h2>Tres unidades, <span class="it">un único plan</span> para ti.</h2>
+      <div class="head">
+        <div><span class="label">Especialidades</span><h2>Tres unidades médicas en una sola clínica</h2></div>
+        <p class="lead" style="max-width:42ch">Coordinamos cada caso entre especialistas para que tengas un único plan y un único interlocutor.</p>
       </div>
-      <div class="tabs" role="tablist" aria-label="Especialidades">
-        <button class="tab" role="tab" id="tab-dental" aria-selected="true" aria-controls="spec" data-spec="dental">Dental</button>
-        <button class="tab" role="tab" id="tab-estetica" aria-selected="false" aria-controls="spec" data-spec="estetica">Medicina estética</button>
-        <button class="tab" role="tab" id="tab-capilar" aria-selected="false" aria-controls="spec" data-spec="capilar">Capilar</button>
-      </div>
-      <div class="spec" id="spec" role="tabpanel" aria-labelledby="tab-dental">
-        <div class="spec-art" id="specArt"></div>
-        <div class="spec-body">
-          <h3 id="specTitle"></h3>
-          <p class="lead" id="specLead"></p>
-          <ul class="treat-list" id="specList"></ul>
-          <div><a class="btn ghost" href="#reserva" id="specCta">Consultar este tratamiento <span class="arr">→</span></a></div>
-        </div>
+      <div class="units">
+        <a class="unit" href="#tratamientos" data-filter="dental">
+          <img src="assets/img/consulta.webp" alt="Dentista conversando con una paciente en el gabinete" loading="lazy">
+          <span class="tag">Unidad dental</span><span class="go"><svg class="ico"><use href="#i-arrow-ur"/></svg></span>
+          <div class="unit-b"><h3>Odontología</h3><ul><li>Implantes</li><li>Carillas</li><li>Blanqueamiento</li><li>Ortodoncia invisible</li></ul></div>
+        </a>
+        <a class="unit" href="#tratamientos" data-filter="estetica">
+          <img src="assets/img/estetica.webp" alt="Mujer sonriendo con la piel luminosa" loading="lazy">
+          <span class="tag">Unidad estética</span><span class="go"><svg class="ico"><use href="#i-arrow-ur"/></svg></span>
+          <div class="unit-b"><h3>Medicina estética</h3><ul><li>Ácido hialurónico</li><li>Neuromoduladores</li><li>Labios</li><li>Calidad de piel</li></ul></div>
+        </a>
+        <a class="unit" href="#tratamientos" data-filter="capilar">
+          <img src="assets/img/playa.webp" alt="Hombre sonriendo en la playa" loading="lazy">
+          <span class="tag">Unidad capilar</span><span class="go"><svg class="ico"><use href="#i-arrow-ur"/></svg></span>
+          <div class="unit-b"><h3>Trasplante capilar</h3><ul><li>Injerto FUE</li><li>PRP capilar</li><li>Bioestimulación</li></ul></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="simulador" style="background:var(--stone-2)">
+  <section class="section alt" id="tratamientos">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Herramientas interactivas</span>
-        <h2>Visualiza tu resultado <span class="it">antes de empezar.</span></h2>
-        <p class="lead">Dos simuladores orientativos para que el paciente llegue a la consulta con una idea clara. El resultado real lo define siempre la valoración médica.</p>
+      <div class="head">
+        <div><span class="label">Tratamientos</span><h2>Los tratamientos más solicitados</h2></div>
+        <div class="filters" role="group" aria-label="Filtrar tratamientos">
+          <button type="button" aria-pressed="true" data-f="all">Todos</button>
+          <button type="button" aria-pressed="false" data-f="dental">Dental</button>
+          <button type="button" aria-pressed="false" data-f="estetica">Estética</button>
+          <button type="button" aria-pressed="false" data-f="capilar">Capilar</button>
+        </div>
       </div>
-      <div class="sims">
-        <div class="sim">
-          <div class="sim-head">
-            <div><span class="eyebrow">Dental</span><h3>Simulador de blanqueamiento</h3></div>
-            <span class="tag-demo">Escala VITA</span>
-          </div>
-          <div class="compare" id="compare" style="--pos:50%" role="slider" tabindex="0" aria-label="Comparar antes y después" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-            <svg viewBox="0 0 320 180" aria-hidden="true"><use href="#smile" style="--tooth: var(--before, #D9C38F)"/></svg>
-            <svg class="after" viewBox="0 0 320 180" aria-hidden="true"><use href="#smile" style="--tooth: var(--after, #F1EEE4)"/></svg>
-            <div class="handle"></div>
-            <span class="lbl l">Antes · <span id="bLbl">A3.5</span></span>
-            <span class="lbl r">Después · <span id="aLbl">B1</span></span>
-          </div>
-          <div>
-            <p class="slot-group" style="margin-bottom:8px">Elige el tono objetivo</p>
-            <div class="shades" id="shades"></div>
-          </div>
-          <div class="sim-out">
-            <span>Mejora estimada <b id="shadeGain">7 tonos</b></span>
-            <span>Sesiones orientativas <b id="shadeSess">2</b></span>
-          </div>
+      <div class="treats" id="treats"></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="film">
+        <video id="film" src="assets/video/clinica.mp4" poster="assets/img/clinica-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo de un tratamiento en el gabinete"></video>
+        <div class="film-b">
+          <span class="label" style="color:#9FD3DB">La clínica</span>
+          <h2>Un espacio luminoso, pensado para que te sientas tranquilo</h2>
+          <p>Gabinetes individuales, protocolos de esterilización con trazabilidad y un trato cercano de principio a fin.</p>
+          <div><a class="btn white" href="#reserva">Visítanos <svg class="ico"><use href="#i-arrow"/></svg></a></div>
         </div>
-        <div class="sim">
-          <div class="sim-head">
-            <div><span class="eyebrow">Capilar</span><h3>Calculadora de injerto FUE</h3></div>
-            <span class="tag-demo">Escala Norwood</span>
-          </div>
-          <div class="norwood" id="norwood" role="group" aria-label="Grado de alopecia"></div>
-          <div class="scalp">
-            <svg viewBox="0 0 180 200" aria-hidden="true">
-              <ellipse cx="90" cy="104" rx="72" ry="88" style="fill:var(--stone-2);stroke:var(--line)"/>
-              <ellipse cx="90" cy="104" rx="66" ry="82" style="fill:var(--ink)" opacity=".85"/>
-              <path id="baldFront" fill="#E7C9AE" d=""/>
-              <ellipse id="baldCrown" cx="90" cy="138" rx="0" ry="0" fill="#E7C9AE"/>
-              <path d="M74 14q16-10 32 0" style="stroke:var(--gold)" fill="none" stroke-width="1.5"/>
-              <text x="90" y="10" text-anchor="middle" font-size="7" style="fill:var(--ink-soft)" font-family="DM Mono, monospace">FRENTE</text>
-            </svg>
-            <div class="grafts">
-              <span class="slot-group">Unidades foliculares estimadas</span>
-              <span class="num" id="graftNum">1.800–2.800</span>
-              <div class="meter"><i id="graftMeter" style="width:40%"></i></div>
-              <small id="graftNote">Grado IV: entradas profundas y coronilla visible. Normalmente una sola sesión.</small>
-            </div>
-          </div>
+        <button class="play" id="filmT" type="button" aria-label="Pausar vídeo"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tecnologia">
+    <div class="wrap tech">
+      <div class="tech-img">
+        <img src="assets/img/rayos.webp" alt="Especialista revisando radiografías dentales" loading="lazy">
+        <div class="card-f"><span class="live"></span><span><b>Diagnóstico digital</b><br><span class="muted" style="font-size:.78rem">Resultados en la misma visita</span></span></div>
+      </div>
+      <div class="tech-c">
+        <span class="label">Tecnología</span>
+        <h2>Diagnóstico preciso antes de cada tratamiento</h2>
+        <p class="lead">Planificamos con imagen digital para que sepas qué vamos a hacer, cuánto dura y cuál será el resultado.</p>
+        <ul class="tech-list">
+          <li><span class="ic"><svg class="ico"><use href="#i-scan"/></svg></span><div><b>Escáner intraoral 3D</b><span>Impresiones digitales sin pastas, más cómodas y exactas.</span></div></li>
+          <li><span class="ic"><svg class="ico"><use href="#i-cube"/></svg></span><div><b>Radiología 3D (CBCT)</b><span>Planificación guiada de implantes con mínima radiación.</span></div></li>
+          <li><span class="ic"><svg class="ico"><use href="#i-smile"/></svg></span><div><b>Diseño digital de sonrisa</b><span>Ves tu nueva sonrisa antes de empezar las carillas.</span></div></li>
+          <li><span class="ic"><svg class="ico"><use href="#i-micro"/></svg></span><div><b>Tricoscopia digital</b><span>Análisis del cuero cabelludo para planificar el injerto FUE.</span></div></li>
+        </ul>
+        <span class="note" style="justify-self:start">Equipamiento a confirmar con la clínica</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="resultados">
+    <div class="wrap ba">
+      <div class="compare" id="compare" role="slider" tabindex="0" aria-label="Comparar antes y después" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="--pos:50%">
+        <img src="assets/img/antes.webp" alt="Sonrisa antes del blanqueamiento" loading="lazy">
+        <img class="after" src="assets/img/despues.webp" alt="Sonrisa después del blanqueamiento" loading="lazy">
+        <span class="bar"></span>
+        <span class="knob"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+        <span class="tg l">Antes</span><span class="tg r">Después</span>
+      </div>
+      <div class="ba-c">
+        <span class="label">Resultados</span>
+        <h2>Blanqueamiento dental profesional</h2>
+        <p class="lead">Desliza para comparar. Un tratamiento en clínica, supervisado por el odontólogo, que cuida el esmalte y la sensibilidad.</p>
+        <div class="facts">
+          <div><small>Duración</small><b>60–90 min</b></div>
+          <div><small>Sesiones</small><b>1 a 2</b></div>
+          <div><small>Mejora habitual</small><b>Varios tonos</b></div>
+          <div><small>Recuperación</small><b>Inmediata</b></div>
         </div>
+        <span class="note" style="justify-self:start">Imagen ilustrativa · se sustituirá por casos reales de la clínica</span>
+        <a class="link" href="#reserva">Quiero valorar mi caso <span><svg class="ico"><use href="#i-arrow"/></svg></span></a>
       </div>
     </div>
   </section>
 
   <section class="section" id="visita">
     <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Tu primera visita</span>
-        <h2>Así es el camino, <span class="it">paso a paso.</span></h2>
-      </div>
+      <div class="head"><div><span class="label">Tu primera visita</span><h2>Así empieza tu tratamiento</h2></div></div>
       <ol class="steps">
-        <li><b>Valoración</b><p>Conversación con el especialista y exploración. Sin coste y sin compromiso.</p></li>
-        <li><b>Diagnóstico</b><p>Fotografía clínica, escáner intraoral o tricoscopia según la unidad.</p></li>
-        <li><b>Plan y presupuesto</b><p>Plan por escrito, con fases, plazos y opciones de financiación.</p></li>
-        <li><b>Tratamiento</b><p>En nuestra clínica de Coll d'en Rabassa, con el mismo equipo de principio a fin.</p></li>
-        <li><b>Seguimiento</b><p>Revisiones programadas y contacto directo por WhatsApp.</p></li>
+        <li><b>Reserva tu cita</b><p>Online en un minuto, por teléfono o por WhatsApp.</p></li>
+        <li><b>Valoración gratuita</b><p>Exploración con el especialista y diagnóstico digital.</p></li>
+        <li><b>Plan y presupuesto</b><p>Por escrito, con fases, plazos y opciones de financiación.</p></li>
+        <li><b>Tratamiento y seguimiento</b><p>El mismo equipo de principio a fin, con revisiones programadas.</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="booking" id="reserva">
+  <section class="section alt" id="equipo">
     <div class="wrap">
-      <div class="booking-info">
-        <span class="eyebrow" style="color:var(--gold-soft)">Cita online · 24 h</span>
-        <h2>Reserva tu valoración <span class="it" style="color:var(--gold-soft)">en un minuto.</span></h2>
-        <p class="lead">Elige especialidad, día y hora. Te confirmamos por WhatsApp o llamada en horario de clínica.</p>
-        <div class="contact-lines" id="contacto">
-          <div><span>Teléfono</span><p>871 951 211 <button class="copy" type="button" data-copy="871951211">Copiar</button></p></div>
-          <div><span>Móvil</span><p>671 032 638 <button class="copy" type="button" data-copy="671032638">Copiar</button></p></div>
-          <div><span>Email</span><p>info@elitepalma.es <button class="copy" type="button" data-copy="info@elitepalma.es">Copiar</button></p></div>
-          <div><span>Dirección</span><p>Carrer del Cardenal Rossell, 17<br>07007 Palma · <a href="https://www.google.com/maps/search/?api=1&query=Carrer+del+Cardenal+Rossell+17+Palma" target="_blank" rel="noopener">Abrir en Maps ↗</a></p></div>
-          <div><span>Horario</span><p>Lunes a viernes<br>10:00–13:30 · 16:30–20:00</p></div>
+      <div class="head">
+        <div><span class="label">Equipo médico</span><h2>Especialistas que te acompañan en todo el proceso</h2></div>
+        <span class="note">Fotografías de ejemplo · se sustituirán por el equipo real</span>
+      </div>
+      <div class="team">
+        <div class="doc"><div class="doc-i"><img src="assets/img/team-1.webp" alt="Retrato de la directora médica" loading="lazy"></div><div><b>Dirección médica</b><span>Cirugía capilar y medicina estética</span><small>Col. nº pendiente</small></div></div>
+        <div class="doc"><div class="doc-i"><img src="assets/img/team-2.webp" alt="Retrato del odontólogo" loading="lazy"></div><div><b>Odontología estética</b><span>Carillas y diseño de sonrisa</span><small>Col. nº pendiente</small></div></div>
+        <div class="doc"><div class="doc-i"><img src="assets/img/team-3.webp" alt="Retrato de la implantóloga" loading="lazy"></div><div><b>Implantología</b><span>Cirugía oral e implantes</span><small>Col. nº pendiente</small></div></div>
+        <div class="doc"><div class="doc-i"><img src="assets/img/team-4.webp" alt="Retrato de la coordinadora de pacientes" loading="lazy"></div><div><b>Atención al paciente</b><span>Coordinación en ES · EN · DE</span><small>Recepción y seguimiento</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="opiniones">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="label">Opiniones</span><h2>Lo que dicen nuestros pacientes</h2></div>
+        <span class="note">Reseñas de ejemplo · se conectarán a Google</span>
+      </div>
+      <div class="rev">
+        <div class="rev-sum">
+          <span class="g-logo"><svg width="20" height="20"><use href="#i-g"/></svg>Reseñas de Google</span>
+          <span class="n">4,9</span>
+          <span class="stars" style="font-size:1.1rem">★★★★★</span>
+          <p>Media de valoraciones de pacientes.</p>
+          <a class="btn white" href="https://www.google.com/maps/search/?api=1&query=Clinica+Elite+Palma" target="_blank" rel="noopener">Ver en Google</a>
+        </div>
+        <div class="rev-list">
+          <div class="rcard"><span class="stars">★★★★★</span><p>Me hice las carillas y el resultado es exactamente el que me enseñaron en el diseño digital. Trato impecable desde la primera visita.</p><div class="who"><i>MG</i><div><b>Marta G.</b><span>Carillas · hace 2 semanas</span></div></div></div>
+          <div class="rcard"><span class="stars">★★★★★</span><p>Injerto FUE con un seguimiento muy cercano. A los cuatro meses ya se nota la diferencia. Clínica muy limpia y moderna.</p><div class="who"><i>JR</i><div><b>Javier R.</b><span>Injerto capilar · hace 1 mes</span></div></div></div>
+          <div class="rcard"><span class="stars">★★★★★</span><p>Wonderful English-speaking team, clear pricing and a spotless clinic. Highly recommended if you live in Mallorca.</p><div class="who"><i>SK</i><div><b>Sarah K.</b><span>Blanqueamiento · hace 3 semanas</span></div></div></div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <section class="section alt" id="financiacion">
+    <div class="wrap fin">
+      <div class="fin-c">
+        <span class="label">Financiación</span>
+        <h2>Empieza ahora y paga en cómodas cuotas</h2>
+        <p class="lead">Te damos un presupuesto cerrado y te ayudamos a elegir la forma de pago que mejor encaja contigo.</p>
+        <ul class="ticks">
+          <li><span class="chk">✓</span>Sin intereses hasta 12 meses en tratamientos seleccionados</li>
+          <li><span class="chk">✓</span>Respuesta de la financiera en el momento</li>
+          <li><span class="chk">✓</span>Pago con tarjeta, transferencia o Bizum</li>
+        </ul>
+      </div>
+      <div class="calc">
+        <label for="amt">Importe del tratamiento <output id="amtV">3.600 €</output></label>
+        <input type="range" id="amt" min="500" max="12000" step="100" value="3600">
+        <label for="mon">Plazo <output id="monV">24 meses</output></label>
+        <input type="range" id="mon" min="6" max="48" step="6" value="24">
+        <div class="fee"><b id="fee">164 €</b><span class="muted">/ mes</span></div>
+        <span class="muted" style="font-size:.75rem">Simulación orientativa. TIN 8,99 % a partir de 13 meses. Sujeto a aprobación de la entidad financiera.</span>
+        <a class="btn" href="#reserva">Solicitar presupuesto</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="reserva">
+    <div class="wrap book">
+      <div class="book-c">
+        <span class="label">Cita online</span>
+        <h2>Reserva tu valoración gratuita</h2>
+        <p class="lead">Elige especialidad, día y hora. Te confirmamos la cita por WhatsApp o por teléfono en horario de clínica.</p>
+        <ul class="ticks">
+          <li><span class="chk">✓</span>Sin pago por adelantado</li>
+          <li><span class="chk">✓</span>Cambia o cancela cuando lo necesites</li>
+          <li><span class="chk">✓</span>Recordatorio el día antes</li>
+        </ul>
+      </div>
       <div class="panel" id="panel">
-        <div class="progress" aria-hidden="true"><div class="on" id="p1">Tratamiento</div><div id="p2">Día y hora</div><div id="p3">Tus datos</div></div>
+        <div class="prog" aria-hidden="true"><div class="on" id="p1">1 · Tratamiento</div><div id="p2">2 · Día y hora</div><div id="p3">3 · Tus datos</div></div>
 
         <div id="st1">
-          <p class="step-title" style="margin-bottom:16px">¿Qué te interesa?</p>
+          <p class="st-t">¿Qué te interesa?</p>
           <div class="opts" id="bkSpec">
             <button type="button" class="opt" data-v="Dental" aria-pressed="true"><b>Dental</b><small>Estética, implantes, ortodoncia</small></button>
             <button type="button" class="opt" data-v="Medicina estética" aria-pressed="false"><b>Estética</b><small>Facial, rellenos, piel</small></button>
             <button type="button" class="opt" data-v="Capilar" aria-pressed="false"><b>Capilar</b><small>Injerto FUE, PRP</small></button>
           </div>
-          <label style="margin-top:16px" for="bkTreat">Tratamiento
-            <select id="bkTreat"></select>
-          </label>
+          <label class="fld" for="bkTreat" style="margin-top:16px">Motivo de la consulta<select id="bkTreat"></select></label>
         </div>
 
         <div id="st2" hidden>
-          <p class="step-title" style="margin-bottom:16px">Elige día y hora</p>
+          <p class="st-t">Elige día y hora</p>
           <div class="days" id="days"></div>
           <div style="display:grid;gap:10px;margin-top:16px" id="slotsWrap"></div>
         </div>
 
         <form id="st3" hidden novalidate>
-          <p class="step-title" style="margin-bottom:16px">Tus datos</p>
-          <div class="form-grid">
-            <label for="fName">Nombre y apellidos<input id="fName" required autocomplete="name" value="Laura Ferrer"></label>
-            <label for="fPhone">Teléfono<input id="fPhone" required type="tel" autocomplete="tel" value="600 123 456"></label>
-            <label class="full" for="fMail">Email<input id="fMail" type="email" autocomplete="email" value="laura@ejemplo.com"></label>
-            <label class="full" for="fMsg">¿Algo que debamos saber? (opcional)<textarea id="fMsg" rows="2" placeholder="Por ejemplo: prefiero que me contactéis por WhatsApp"></textarea></label>
-            <label class="chk full" for="fOk"><input type="checkbox" id="fOk" checked> Acepto la política de privacidad y el tratamiento de mis datos para gestionar la cita.</label>
+          <p class="st-t">Tus datos</p>
+          <div class="form">
+            <label class="fld" for="fName">Nombre y apellidos<input type="text" id="fName" autocomplete="name" value="Laura Ferrer"></label>
+            <label class="fld" for="fPhone">Teléfono<input type="tel" id="fPhone" autocomplete="tel" value="600 123 456"></label>
+            <label class="fld full" for="fMail">Email<input type="email" id="fMail" autocomplete="email" value="laura@ejemplo.com"></label>
+            <label class="fld full" for="fMsg">Comentarios (opcional)<textarea id="fMsg" rows="2" placeholder="Por ejemplo: prefiero que me contactéis por WhatsApp"></textarea></label>
+            <label class="consent full" for="fOk"><input type="checkbox" id="fOk" checked> Acepto la política de privacidad y el tratamiento de mis datos para gestionar la cita.</label>
           </div>
         </form>
 
         <div id="st4" class="done" hidden>
-          <div class="check">✓</div>
-          <p class="step-title">Solicitud registrada</p>
-          <p class="summary" id="doneTxt"></p>
-          <span class="tag-demo">Prototipo · no se envía ningún dato</span>
-          <button type="button" class="btn ghost" id="restart">Nueva reserva</button>
+          <div class="ok"><svg width="30" height="30"><use href="#i-check"/></svg></div>
+          <h3>Solicitud recibida</h3>
+          <p class="sum" id="doneTxt"></p>
+          <span class="note">Prototipo · no se envía ningún dato</span>
+          <button type="button" class="btn line" id="restart">Hacer otra reserva</button>
         </div>
 
-        <div class="panel-foot" id="foot">
-          <p class="summary" id="sum"></p>
+        <div class="foot" id="foot">
+          <p class="sum" id="sum"></p>
           <div style="display:flex;gap:8px">
-            <button type="button" class="btn ghost" id="back" hidden>Atrás</button>
-            <button type="button" class="btn" id="next">Continuar <span class="arr">→</span></button>
+            <button type="button" class="btn line" id="back" hidden>Atrás</button>
+            <button type="button" class="btn" id="next">Continuar</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="equipo">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Equipo médico</span>
-        <h2>Especialistas que <span class="it">te conocen por tu nombre.</span></h2>
-        <p class="lead">Fotografías y nombres reales del equipo se incorporarán en la versión final.</p>
-      </div>
-      <div class="team">
-        <div class="doc"><div class="doc-pic">Dra.</div><div><b>Directora médica</b><span>Cirugía capilar · Medicina estética</span><small>Nº colegiado · pendiente</small></div></div>
-        <div class="doc"><div class="doc-pic">Dr.</div><div><b>Odontólogo/a</b><span>Estética dental · Prótesis</span><small>Nº colegiado · pendiente</small></div></div>
-        <div class="doc"><div class="doc-pic">Dr.</div><div><b>Implantólogo/a</b><span>Cirugía oral · Implantes</span><small>Nº colegiado · pendiente</small></div></div>
-        <div class="doc"><div class="doc-pic">Eq.</div><div><b>Coordinación de pacientes</b><span>Atención en ES · EN · DE</span><small>Recepción y seguimiento</small></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="opiniones" style="background:var(--stone-2)">
-    <div class="wrap reviews">
-      <div>
-        <span class="eyebrow">Opiniones de pacientes <span class="tag-demo" style="margin-left:8px">Textos de ejemplo</span></span>
-        <p class="quote" id="quote" style="margin-top:20px"></p>
-        <div class="quote-by"><span class="stars">★★★★★</span><b id="qBy"></b><span id="qT"></span></div>
-        <div class="dots" id="qDots"></div>
-      </div>
-      <div class="score">
-        <span class="slot-group">Reseñas de Google</span>
-        <div style="display:flex;align-items:baseline;gap:12px"><span class="n">4,9</span><span class="stars">★★★★★</span></div>
-        <div class="bars">
-          <div><span>5★</span><i style="--w:88%"></i><span>88%</span></div>
-          <div><span>4★</span><i style="--w:9%"></i><span>9%</span></div>
-          <div><span>3★</span><i style="--w:2%"></i><span>2%</span></div>
-          <div><span>2★</span><i style="--w:1%"></i><span>1%</span></div>
-          <div><span>1★</span><i style="--w:0%"></i><span>0%</span></div>
-        </div>
-        <span class="tag-demo" style="justify-self:start">Cifras de ejemplo · se conectará a Google</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="financiacion">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Financiación</span>
-        <h2>Empieza hoy, <span class="it">paga a tu ritmo.</span></h2>
-      </div>
-      <div class="finance">
-        <div class="fin-card">
-          <label for="amt">Importe del tratamiento</label>
-          <input type="range" id="amt" min="500" max="12000" step="100" value="3600">
-          <div class="row-vals"><span>500 €</span><b id="amtV">3.600 €</b><span>12.000 €</span></div>
-          <label for="mon">Plazo</label>
-          <input type="range" id="mon" min="6" max="48" step="6" value="24">
-          <div class="row-vals"><span>6 meses</span><b id="monV">24 meses</b><span>48 meses</span></div>
-          <div class="fin-out"><span class="n" id="fee">150 €</span><span style="color:var(--ink-soft)">/ mes</span></div>
-          <span class="tag-demo" style="justify-self:start">Simulación orientativa · sujeta a aprobación financiera</span>
-        </div>
-        <div class="fin-card">
-          <ul class="perks">
-            <li><span>Primera valoración gratuita en las tres unidades.</span></li>
-            <li><span>Presupuesto cerrado por escrito, sin sorpresas.</span></li>
-            <li><span>Financiación sin intereses hasta 12 meses en tratamientos seleccionados.</span></li>
-            <li><span>Un plan combinado si quieres tratar sonrisa, piel y cabello.</span></li>
-          </ul>
-          <a class="btn" href="#reserva" style="justify-self:start">Solicitar presupuesto <span class="arr">→</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="faq" style="padding-top:0">
+  <section class="section alt" id="faq">
     <div class="wrap faq">
-      <div class="section-head" style="margin:0">
-        <span class="eyebrow">Preguntas frecuentes</span>
-        <h2>Lo que más <span class="it">nos preguntan.</span></h2>
-      </div>
+      <div class="head" style="margin:0;align-items:start"><div><span class="label">Preguntas frecuentes</span><h2>Resolvemos tus dudas</h2><p class="muted">¿No encuentras tu respuesta? Escríbenos por WhatsApp al 671 032 638.</p></div></div>
       <div>
-        <details open><summary>¿La primera consulta tiene coste?</summary><p>No. La valoración inicial es gratuita en las unidades dental, estética y capilar. Sales con un diagnóstico y un presupuesto por escrito.</p></details>
-        <details><summary>¿Cuánto dura la recuperación de un injerto capilar FUE?</summary><p>La mayoría de pacientes retoma su actividad normal en pocos días. El cabello trasplantado se cae en las primeras semanas y empieza a crecer de forma visible a partir del tercer o cuarto mes.</p></details>
-        <details><summary>¿El ácido hialurónico da un resultado natural?</summary><p>Trabajamos con dosis precisas y planificación facial completa para respetar tus rasgos. El objetivo es que te vean descansada o descansado, no diferente.</p></details>
-        <details><summary>¿Atendéis en inglés o alemán?</summary><p>Sí. Parte del equipo atiende en inglés y alemán, y la web y la reserva online están disponibles en los tres idiomas.</p></details>
-        <details><summary>¿Dónde aparcar?</summary><p>Estamos en Carrer del Cardenal Rossell, 17, en Coll d'en Rabassa, con aparcamiento en la zona y buena conexión desde el aeropuerto y la autopista.</p></details>
+        <details open><summary>¿La primera consulta tiene coste?</summary><p>No. La valoración inicial es gratuita en las unidades dental, estética y capilar. Sales con un diagnóstico y un presupuesto cerrado por escrito.</p></details>
+        <details><summary>¿Duele ponerse un implante dental?</summary><p>Se realiza con anestesia local y la mayoría de pacientes lo describe como menos molesto que una extracción. Te damos pautas y medicación para los días siguientes.</p></details>
+        <details><summary>¿Cuándo se ven los resultados de un injerto capilar FUE?</summary><p>El cabello trasplantado se cae en las primeras semanas y empieza a crecer de forma visible a partir del tercer o cuarto mes. El resultado final se aprecia entre los 9 y 12 meses.</p></details>
+        <details><summary>¿El ácido hialurónico da un resultado natural?</summary><p>Trabajamos con dosis precisas y una planificación facial completa para respetar tus rasgos. El objetivo es que te vean descansada o descansado, no diferente.</p></details>
+        <details><summary>¿Atendéis en inglés o alemán?</summary><p>Sí. Parte del equipo atiende en inglés y alemán, y la reserva online está disponible en los tres idiomas.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section" id="contacto">
     <div class="wrap">
-      <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:24px">
-        <div style="display:grid;gap:8px"><span class="eyebrow">Instagram</span><h2 style="font-size:var(--s-xl)">@clinicaelitepalma</h2></div>
-        <a class="btn ghost" href="https://www.instagram.com/clinicaelitepalma/" target="_blank" rel="noopener">Seguir ↗</a>
+      <div class="head"><div><span class="label">Contacto</span><h2>Ven a conocernos</h2></div></div>
+      <div class="contact">
+        <div class="c-card">
+          <div class="c-row"><span class="ic"><svg class="ico"><use href="#i-pin"/></svg></span><div><small>Dirección</small><b>Carrer del Cardenal Rossell, 17</b><br><span class="muted">07007 Coll d'en Rabassa, Palma</span></div></div>
+          <div class="c-row"><span class="ic"><svg class="ico"><use href="#i-phone"/></svg></span><div><small>Teléfono y WhatsApp</small><b>871 951 211</b><button class="copy" type="button" data-copy="871951211">Copiar</button><br><b>671 032 638</b><button class="copy" type="button" data-copy="671032638">Copiar</button></div></div>
+          <div class="c-row"><span class="ic"><svg class="ico"><use href="#i-mail"/></svg></span><div><small>Email</small><b>info@elitepalma.es</b><button class="copy" type="button" data-copy="info@elitepalma.es">Copiar</button></div></div>
+          <a class="btn" style="justify-self:start" href="https://www.google.com/maps/search/?api=1&query=Carrer+del+Cardenal+Rossell+17+Palma" target="_blank" rel="noopener">Cómo llegar <svg class="ico"><use href="#i-arrow-ur"/></svg></a>
+        </div>
+        <div class="c-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><h3>Horario</h3><span class="open-now" id="openNow"><span class="live"></span><span>Abierto ahora</span></span></div>
+          <table class="hours" id="hours"><tbody></tbody></table>
+        </div>
       </div>
-      <div class="ig-grid" id="ig"></div>
     </div>
   </section>
+
+  <div class="wrap">
+    <div class="cta-band">
+      <div><h2>Tu primera visita es gratuita</h2><p>Valoración, diagnóstico y presupuesto sin compromiso.</p></div>
+      <div class="cta-row"><a class="btn white" href="#reserva">Pedir cita online</a><a class="btn" href="https://wa.me/34671032638" target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp</a></div>
+    </div>
+  </div>
 </main>
 
 <footer>
   <div class="wrap">
     <div style="display:grid;gap:18px;align-content:start">
-      <p class="big">Élite Palma</p>
-      <p style="opacity:.75;max-width:36ch">Medicina estética, capilar y dental en Coll d'en Rabassa, Palma de Mallorca.</p>
+      <a class="logo" href="#inicio" style="color:#fff"><span class="logo-m" aria-hidden="true">É</span><span class="logo-t"><b>ÉLITE</b><small>Clínica · Palma</small></span></a>
+      <p style="color:#C3D0D4;max-width:34ch;font-size:.9rem">Medicina estética, capilar y dental en Coll d'en Rabassa, Palma de Mallorca.</p>
     </div>
-    <div><h4>Dental</h4><ul><li>Carillas</li><li>Blanqueamiento</li><li>Implantes</li><li>Ortodoncia invisible</li></ul></div>
-    <div><h4>Estética</h4><ul><li>Ácido hialurónico</li><li>Neuromoduladores</li><li>Rejuvenecimiento facial</li><li>Perfilado de labios</li></ul></div>
-    <div><h4>Capilar</h4><ul><li>Injerto FUE</li><li>PRP capilar</li><li>Bioestimulación</li><li>Diagnóstico tricológico</li></ul></div>
+    <div><h4>Dental</h4><ul><li>Implantes</li><li>Carillas</li><li>Blanqueamiento</li><li>Ortodoncia invisible</li></ul></div>
+    <div><h4>Estética</h4><ul><li>Ácido hialurónico</li><li>Neuromoduladores</li><li>Labios</li><li>Calidad de piel</li></ul></div>
+    <div><h4>Capilar</h4><ul><li>Injerto FUE</li><li>PRP capilar</li><li>Bioestimulación</li><li>Diagnóstico capilar</li></ul></div>
     <div class="legal"><span>© 2026 Clínica Élite Palma · Prototipo de rediseño</span><span>Aviso legal · Privacidad · Cookies</span></div>
   </div>
 </footer>
 
-<div class="fab">
-  <div class="chat" id="chat" hidden>
-    <div class="chat-h"><span class="av">É</span><div><b>Asistente Élite</b><small>Responde al instante · 24 h</small></div><button type="button" id="chatX" aria-label="Cerrar asistente">×</button></div>
-    <div class="chat-b" id="chatB" aria-live="polite"><div class="msg">Hola, soy el asistente de Clínica Élite. ¿En qué te puedo ayudar?</div></div>
-    <div class="chat-q" id="chatQ"></div>
-  </div>
-  <button class="fab-btn fab-chat" id="chatT" type="button" aria-label="Abrir asistente" aria-expanded="false">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H9l-5 4z"/></svg>
-  </button>
-  <a class="fab-btn fab-wa" href="https://wa.me/34671032638" target="_blank" rel="noopener" aria-label="WhatsApp 671 032 638">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>
-  </a>
-</div>
+<a class="wa" href="https://wa.me/34671032638" target="_blank" rel="noopener" aria-label="WhatsApp 671 032 638"><svg width="28" height="28"><use href="#i-wa"/></svg></a>
+<nav class="mbar" aria-label="Acciones rápidas">
+  <a href="tel:+34871951211"><svg class="ico"><use href="#i-phone"/></svg>Llamar</a>
+  <a href="https://wa.me/34671032638" target="_blank" rel="noopener"><svg class="ico" style="color:#25D366"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="p" href="#reserva"><svg class="ico"><use href="#i-cal"/></svg>Pedir cita</a>
+</nav>
 <div class="toast" id="toast" role="status"></div>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <g id="smile">
-      <rect width="320" height="180" fill="#3B1E24"/>
-      <path d="M30 70 Q160 20 290 70 Q270 160 160 165 Q50 160 30 70z" fill="#B65C63"/>
-      <path d="M48 76 Q160 44 272 76 Q252 142 160 146 Q68 142 48 76z" fill="#5B1E26"/>
-      <path d="M58 78 Q160 52 262 78 L258 92 Q160 78 62 92z" fill="#D07A84"/>
-      <g style="fill:var(--tooth)" stroke="rgba(80,50,30,.25)" stroke-width="1">
-        <rect x="66" y="80" width="24" height="34" rx="9"/>
-        <rect x="91" y="76" width="27" height="40" rx="10"/>
-        <rect x="119" y="72" width="20" height="44" rx="9"/>
-        <rect x="140" y="70" width="40" height="48" rx="12"/>
-        <rect x="181" y="72" width="20" height="44" rx="9"/>
-        <rect x="202" y="76" width="27" height="40" rx="10"/>
-        <rect x="230" y="80" width="24" height="34" rx="9"/>
-        <rect x="88" y="120" width="30" height="20" rx="8"/>
-        <rect x="119" y="122" width="26" height="22" rx="8"/>
-        <rect x="146" y="122" width="28" height="22" rx="8"/>
-        <rect x="175" y="122" width="26" height="22" rx="8"/>
-        <rect x="202" y="120" width="30" height="20" rx="8"/>
-      </g>
-      <path d="M140 74 q10-3 18 0" stroke="rgba(255,255,255,.55)" stroke-width="3" fill="none" stroke-linecap="round"/>
-    </g>
-  </defs>
-</svg>
 
 <script>
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const store = { get(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }, set(k,v){ try { localStorage.setItem(k,v); } catch(e){} } };
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   const toast = (t) => { const el = $('#toast'); el.textContent = t; el.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('show'), 2200); };
 
-  /* Tema */
-  const savedTheme = store.get('elite-theme');
-  if (savedTheme) document.documentElement.dataset.theme = savedTheme;
-  $('#themeT').addEventListener('click', () => {
-    const root = document.documentElement;
-    const isDark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-    root.dataset.theme = isDark ? 'light' : 'dark';
-    store.set('elite-theme', root.dataset.theme);
-  });
-
   /* Menú móvil */
-  $('#menuT').addEventListener('click', (e) => {
-    const open = $('#navLinks').classList.toggle('open');
-    e.currentTarget.setAttribute('aria-expanded', open);
-  });
-  $$('#navLinks a').forEach(a => a.addEventListener('click', () => { $('#navLinks').classList.remove('open'); $('#menuT').setAttribute('aria-expanded', 'false'); }));
+  $('#burger').addEventListener('click', (e) => { const o = $('#menu').classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded', o); });
+  $$('#menu a').forEach(a => a.addEventListener('click', () => { $('#menu').classList.remove('open'); $('#burger').setAttribute('aria-expanded', 'false'); }));
 
-  /* Idiomas (demostración en el titular) */
+  /* Idiomas (demostración en la portada) */
   const i18n = {
-    es: { h1: 'Tu mejor versión, <em>en un solo lugar</em> de Palma.', lead: 'Sonrisa, piel y cabello tratados por un mismo equipo médico. Diagnóstico personalizado, tecnología actual y resultados naturales, a cinco minutos del aeropuerto.', cta: 'Reservar valoración', cta2: 'Probar el simulador' },
-    en: { h1: 'Your best self, <em>all in one place</em> in Palma.', lead: 'Smile, skin and hair cared for by one medical team. Personalised diagnosis, modern technology and natural results, five minutes from the airport.', cta: 'Book a consultation', cta2: 'Try the simulator' },
-    de: { h1: 'Ihr bestes Ich, <em>alles an einem Ort</em> in Palma.', lead: 'Lächeln, Haut und Haar in den Händen eines einzigen Ärzteteams. Persönliche Diagnose, moderne Technik und natürliche Ergebnisse, fünf Minuten vom Flughafen.', cta: 'Beratung buchen', cta2: 'Simulator testen' }
+    es: { nav: 'Pedir cita', h1: 'Clínica dental y estética en <span>Palma de Mallorca</span>', lead: 'Un mismo equipo médico para tu sonrisa, tu piel y tu cabello. Diagnóstico digital, tratamientos personalizados y resultados naturales.', cta: 'Pedir cita online', cta2: 'Ver tratamientos' },
+    en: { nav: 'Book now', h1: 'Dental and aesthetic clinic in <span>Palma de Mallorca</span>', lead: 'One medical team for your smile, your skin and your hair. Digital diagnosis, personalised treatment and natural results.', cta: 'Book online', cta2: 'View treatments' },
+    de: { nav: 'Termin buchen', h1: 'Zahn- und Ästhetikklinik in <span>Palma de Mallorca</span>', lead: 'Ein Ärzteteam für Ihr Lächeln, Ihre Haut und Ihr Haar. Digitale Diagnose, individuelle Behandlung und natürliche Ergebnisse.', cta: 'Online buchen', cta2: 'Behandlungen ansehen' }
   };
   $$('.lang button').forEach(b => b.addEventListener('click', () => {
     $$('.lang button').forEach(x => x.setAttribute('aria-pressed', x === b));
@@ -775,216 +800,49 @@ footer .big { font-family: var(--f-display); font-size: clamp(2.4rem, 1.4rem + 4
     document.documentElement.lang = b.dataset.lang;
   }));
 
-  /* Hero: mar mediterráneo animado dentro del arco */
-  const cv = $('#sea'), cx = cv.getContext('2d');
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function drawSea(t) {
-    const w = cv.clientWidth, h = cv.clientHeight, dpr = Math.min(devicePixelRatio || 1, 2);
-    if (cv.width !== w * dpr) { cv.width = w * dpr; cv.height = h * dpr; }
-    cx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const sky = cx.createLinearGradient(0, 0, 0, h * .62);
-    sky.addColorStop(0, '#1B3E4A'); sky.addColorStop(.55, '#C98F62'); sky.addColorStop(1, '#F0C99A');
-    cx.fillStyle = sky; cx.fillRect(0, 0, w, h);
-    const sx = w * .5, sy = h * .5;
-    const sun = cx.createRadialGradient(sx, sy, 0, sx, sy, w * .45);
-    sun.addColorStop(0, 'rgba(255,236,200,.95)'); sun.addColorStop(.12, 'rgba(255,220,170,.8)'); sun.addColorStop(1, 'rgba(255,200,150,0)');
-    cx.fillStyle = sun; cx.fillRect(0, 0, w, h);
-    const hz = h * .6;
-    const sea = cx.createLinearGradient(0, hz, 0, h);
-    sea.addColorStop(0, '#2E5D69'); sea.addColorStop(1, '#0F2E37');
-    cx.fillStyle = sea; cx.fillRect(0, hz, w, h - hz);
-    for (let i = 0; i < 26; i++) {
-      const y = hz + Math.pow(i / 26, 1.6) * (h - hz);
-      const amp = 1 + i * .25, spread = 40 + i * 6;
-      cx.beginPath();
-      for (let x = 0; x <= w; x += 6) {
-        const yy = y + Math.sin(x / spread + t / 900 + i) * amp;
-        x ? cx.lineTo(x, yy) : cx.moveTo(x, yy);
-      }
-      const near = Math.max(0, 1 - Math.abs(i - 4) / 22);
-      cx.strokeStyle = `rgba(255,${210 + i},${170 + i * 2},${.08 + near * .22})`;
-      cx.lineWidth = .8 + i * .05; cx.stroke();
-    }
-    for (let i = 0; i < 40; i++) {
-      const y = hz + 4 + (i / 40) * (h - hz) * .8;
-      const wd = (1 - i / 40) * 46 + 6;
-      const x = sx + Math.sin(t / 500 + i * 1.7) * (6 + i * .8) - wd / 2;
-      cx.fillStyle = `rgba(255,232,195,${.55 - i * .012})`;
-      cx.fillRect(x, y, wd, 1.4);
-    }
-    cx.fillStyle = 'rgba(20,32,36,.55)';
-    cx.beginPath(); cx.moveTo(0, hz); cx.lineTo(w * .12, hz - 14); cx.lineTo(w * .2, hz - 8); cx.lineTo(w * .32, hz - 20); cx.lineTo(w * .4, hz); cx.fill();
-    if (!reduce) requestAnimationFrame(drawSea);
+  /* Tratamientos */
+  const T = [
+    ['dental', 'Implantes dentales', 'Planificación guiada en 3D y coronas a medida.', 'implante.webp'],
+    ['dental', 'Carillas de porcelana', 'Diseño digital previo para ver tu nueva sonrisa.', 'smile.webp'],
+    ['estetica', 'Ácido hialurónico', 'Labios, pómulos y surcos con un resultado natural.', 'estetica.webp'],
+    ['capilar', 'Injerto capilar FUE', 'Extracción unidad a unidad, sin cicatriz lineal.', 'capilar.webp'],
+    ['dental', 'Blanqueamiento', 'En clínica, seguro para el esmalte, en una sesión.', 'tono.webp'],
+    ['dental', 'Ortodoncia invisible', 'Alineadores transparentes con seguimiento mensual.', 'espejo.webp'],
+    ['estetica', 'Neuromoduladores', 'Suaviza las arrugas de expresión de frente y ojos.', 'senior.webp'],
+    ['estetica', 'Calidad de piel', 'Mesoterapia y bioestimulación para una piel luminosa.', 'paciente.webp'],
+    ['capilar', 'PRP capilar', 'Plasma rico en plaquetas para fortalecer el cabello.', 'playa.webp'],
+    ['dental', 'Higiene y revisión', 'Limpieza profesional y control de encías.', 'tratamiento.webp'],
+    ['dental', 'Prótesis sobre implantes', 'Recupera la función y la estética de toda la boca.', 'implante-modelo.webp'],
+    ['dental', 'Odontología general', 'Empastes, endodoncias y urgencias en el día.', 'revision.webp']
+  ];
+  const unitName = { dental: 'Dental', estetica: 'Estética', capilar: 'Capilar' };
+  const specOf = { dental: 'Dental', estetica: 'Medicina estética', capilar: 'Capilar' };
+  function renderTreats(f) {
+    const list = T.filter(t => f === 'all' || t[0] === f).slice(0, 8);
+    $('#treats').innerHTML = list.map(t => `<a class="treat" href="#reserva" data-unit="${t[0]}" data-t="${t[1]}"><div class="treat-i"><img src="assets/img/${t[3]}" alt="${t[1]}" loading="lazy"></div><div class="treat-b"><small>${unitName[t[0]]}</small><h3>${t[1]}</h3><p>${t[2]}</p><span class="link">Pedir valoración <span><svg class="ico"><use href="#i-arrow"/></svg></span></span></div></a>`).join('');
+    $$('.treat').forEach(a => a.addEventListener('click', () => { selectBkSpec(specOf[a.dataset.unit], a.dataset.t); go(1); }));
   }
-  requestAnimationFrame(drawSea);
+  function setFilter(f) { $$('.filters button').forEach(b => b.setAttribute('aria-pressed', b.dataset.f === f)); renderTreats(f); }
+  $$('.filters button').forEach(b => b.addEventListener('click', () => setFilter(b.dataset.f)));
+  $$('.unit').forEach(u => u.addEventListener('click', () => setFilter(u.dataset.filter)));
 
-  /* Especialidades */
-  const icons = {
-    dental: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M30 18c-10 0-16 9-15 20 1 10 6 14 8 24 2 11 3 22 9 22 7 0 6-17 18-17s11 17 18 17c6 0 7-11 9-22 2-10 7-14 8-24 1-11-5-20-15-20-8 0-12 4-20 4s-12-4-20-4z"/><path d="M38 30c4 2 8 3 12 3" stroke-linecap="round"/></svg>',
-    estetica: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M50 12c-17 0-28 14-28 32 0 22 14 44 28 44s28-22 28-44c0-18-11-32-28-32z"/><path d="M38 44q4-3 8 0M54 44q4-3 8 0M44 68q6 4 12 0M50 48v10l-3 3"/><circle cx="74" cy="22" r="1.6" fill="currentColor"/><circle cx="82" cy="30" r="1"/><path d="M78 14v6M75 17h6"/></svg>',
-    capilar: '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 70h60"/><path d="M34 70c0-8 2-14 0-24-2-10 2-22 2-30M50 70c0-10-2-18 0-28s0-20 2-30M66 70c0-8-2-14 0-24 2-9-1-20-2-28"/><ellipse cx="34" cy="76" rx="4" ry="6"/><ellipse cx="50" cy="76" rx="4" ry="6"/><ellipse cx="66" cy="76" rx="4" ry="6"/></svg>'
-  };
-  const specs = {
-    dental: { title: 'Odontología estética y general', lead: 'Diseño de sonrisa digital, carillas y blanqueamiento, con la salud oral como punto de partida.', big: 'Unidad dental',
-      items: [['Carillas de porcelana y composite', 'Diseño digital previo para ver tu nueva sonrisa antes de tallar.', '2–3 visitas'], ['Blanqueamiento dental', 'En clínica o combinado con férulas para casa.', '60 min'], ['Implantes dentales', 'Planificación guiada y carga inmediata cuando el caso lo permite.', 'Plan a medida'], ['Ortodoncia invisible', 'Alineadores transparentes con seguimiento mensual.', '6–18 meses']] },
-    estetica: { title: 'Medicina estética facial', lead: 'Tratamientos médicos mínimamente invasivos con resultados naturales y personalizados.', big: 'Unidad estética',
-      items: [['Ácido hialurónico', 'Labios, mentón, pómulos y surcos con un enfoque de armonía facial.', '30–45 min'], ['Neuromoduladores', 'Rejuvenecimiento facial para arrugas de expresión en frente y patas de gallo.', '20 min'], ['Mesoterapia y bioestimulación', 'Calidad de piel, luminosidad y firmeza.', '3 sesiones'], ['Eliminación de lesiones cutáneas', 'Lunares y pequeñas lesiones con valoración médica previa.', '20 min']] },
-    capilar: { title: 'Trasplante y salud capilar', lead: 'Injerto con técnica FUE, el procedimiento capilar más solicitado de la clínica, y tratamientos médicos para frenar la caída.', big: 'Unidad capilar',
-      items: [['Injerto capilar FUE', 'Extracción folicular unidad a unidad, sin cicatriz lineal. Equipo de 4 a 6 profesionales por cirugía.', '1 jornada'], ['PRP capilar', 'Plasma rico en plaquetas para fortalecer el folículo.', '45 min'], ['Bioestimulación capilar', 'Para pérdida capilar moderada.', '4–6 sesiones'], ['Diagnóstico tricológico', 'Tricoscopia digital y plan médico personalizado.', '30 min']] }
-  };
-  function setSpec(k) {
-    const s = specs[k];
-    $$('.tab').forEach(t => t.setAttribute('aria-selected', t.dataset.spec === k));
-    $('#spec').setAttribute('aria-labelledby', 'tab-' + k);
-    $('#specArt').innerHTML = icons[k] + `<span class="big">${s.big}</span>`;
-    $('#specTitle').textContent = s.title;
-    $('#specLead').textContent = s.lead;
-    $('#specList').innerHTML = s.items.map(i => `<li><b>${i[0]}</b><span class="dur">${i[2]}</span><p>${i[1]}</p></li>`).join('');
-    $('#specCta').onclick = () => { selectBkSpec({ dental: 'Dental', estetica: 'Medicina estética', capilar: 'Capilar' }[k]); };
-  }
-  $$('.tab').forEach(t => t.addEventListener('click', () => setSpec(t.dataset.spec)));
-  setSpec('dental');
+  /* Vídeo */
+  const film = $('#film');
+  if (reduce) { film.removeAttribute('autoplay'); film.pause(); }
+  const setFilmBtn = () => { const p = film.paused; $('#filmT').innerHTML = `<svg class="ico" style="width:14px;height:14px"><use href="#i-${p ? 'play' : 'pause'}"/></svg><span>${p ? 'Reproducir' : 'Pausar'}</span>`; $('#filmT').setAttribute('aria-label', p ? 'Reproducir vídeo' : 'Pausar vídeo'); };
+  $('#filmT').addEventListener('click', () => { film.paused ? film.play().catch(() => {}) : film.pause(); });
+  film.addEventListener('play', setFilmBtn); film.addEventListener('pause', setFilmBtn); setFilmBtn();
 
-  /* Simulador blanqueamiento */
-  const shades = [['BL1', '#F4F2EC'], ['B1', '#EFE9DA'], ['A1', '#EADFC6'], ['A2', '#E3D2B0'], ['A3', '#DCC79E'], ['A3.5', '#D4BB8C']];
-  const before = shades[5];
+  /* Antes / después */
   const cmp = $('#compare');
-  cmp.style.setProperty('--before', before[1]);
-  function setShade(i) {
-    $$('.shade').forEach((b, j) => b.setAttribute('aria-pressed', j === i));
-    cmp.style.setProperty('--after', shades[i][1]);
-    $('#aLbl').textContent = shades[i][0];
-    const vitaOrder = { BL1: 0, B1: 1, A1: 2, A2: 5, A3: 9, 'A3.5': 12 };
-    const gain = vitaOrder['A3.5'] - vitaOrder[shades[i][0]];
-    $('#shadeGain').textContent = gain === 0 ? 'Sin cambio' : gain + ' tonos';
-    $('#shadeSess').textContent = gain > 9 ? '3' : gain > 4 ? '2' : gain > 0 ? '1' : '0';
-  }
-  $('#shades').innerHTML = shades.map((s) => `<button type="button" class="shade" aria-pressed="false"><i style="background:${s[1]}"></i><span>${s[0]}</span></button>`).join('');
-  $$('.shade').forEach((b, i) => b.addEventListener('click', () => setShade(i)));
-  setShade(1);
-  function setPos(p) { p = Math.max(0, Math.min(100, p)); cmp.style.setProperty('--pos', p + '%'); cmp.setAttribute('aria-valuenow', Math.round(p)); }
-  let drag = false;
+  const setPos = (p) => { p = Math.max(2, Math.min(98, p)); cmp.style.setProperty('--pos', p + '%'); cmp.setAttribute('aria-valuenow', Math.round(p)); };
   const fromEvt = (e) => { const r = cmp.getBoundingClientRect(); return (e.clientX - r.left) / r.width * 100; };
+  let drag = false;
   cmp.addEventListener('pointerdown', e => { drag = true; cmp.setPointerCapture(e.pointerId); setPos(fromEvt(e)); });
   cmp.addEventListener('pointermove', e => { if (drag) setPos(fromEvt(e)); });
   cmp.addEventListener('pointerup', () => drag = false);
+  cmp.addEventListener('pointercancel', () => drag = false);
   cmp.addEventListener('keydown', e => { const v = +cmp.getAttribute('aria-valuenow'); if (e.key === 'ArrowLeft') setPos(v - 5); if (e.key === 'ArrowRight') setPos(v + 5); });
-
-  /* Calculadora capilar */
-  const nw = [
-    ['II', [500, 1000], 'Grado II: ligero retroceso en las entradas. Una sesión.', 0.18, 0],
-    ['III', [1000, 2000], 'Grado III: entradas marcadas. Una sesión.', 0.32, 0],
-    ['IV', [1800, 2800], 'Grado IV: entradas profundas y coronilla visible. Normalmente una sola sesión.', 0.45, 14],
-    ['V', [2500, 3500], 'Grado V: la franja que separa frente y coronilla empieza a perderse.', 0.58, 22],
-    ['VI', [3000, 4500], 'Grado VI: zona frontal y coronilla unidas. Puede requerir dos sesiones.', 0.7, 30],
-    ['VII', [4000, 6000], 'Grado VII: solo queda la corona lateral y posterior. Plan en dos sesiones.', 0.82, 36]
-  ];
-  const fmt = (n) => n.toLocaleString('es-ES');
-  function setNw(i) {
-    const [, g, note, f, crown] = nw[i];
-    $$('#norwood button').forEach((b, j) => b.setAttribute('aria-pressed', j === i));
-    const depth = 18 + f * 120, half = 30 + f * 34;
-    $('#baldFront').setAttribute('d', `M${90 - half} 26 Q90 ${depth * .35} ${90 + half} 26 Q${90 + half * .6} ${depth} 90 ${depth + 6} Q${90 - half * .6} ${depth} ${90 - half} 26z`);
-    $('#baldCrown').setAttribute('rx', crown); $('#baldCrown').setAttribute('ry', crown * 1.1);
-    $('#graftNum').textContent = fmt(g[0]) + '–' + fmt(g[1]);
-    $('#graftMeter').style.width = (g[1] / 6000 * 100) + '%';
-    $('#graftNote').textContent = note;
-  }
-  $('#norwood').innerHTML = nw.map(n => `<button type="button" aria-pressed="false">${n[0]}</button>`).join('');
-  $$('#norwood button').forEach((b, i) => b.addEventListener('click', () => setNw(i)));
-  setNw(2);
-
-  /* Reserva */
-  const treatments = {
-    'Dental': ['Valoración dental', 'Blanqueamiento', 'Carillas', 'Implantes', 'Ortodoncia invisible', 'Higiene y revisión'],
-    'Medicina estética': ['Valoración estética', 'Ácido hialurónico', 'Neuromoduladores', 'Mesoterapia facial'],
-    'Capilar': ['Valoración capilar', 'Injerto FUE', 'PRP capilar', 'Bioestimulación']
-  };
-  const bk = { spec: 'Dental', treat: 'Valoración dental', day: null, slot: null, step: 1 };
-  function selectBkSpec(v) {
-    bk.spec = v;
-    $$('#bkSpec .opt').forEach(o => o.setAttribute('aria-pressed', o.dataset.v === v));
-    $('#bkTreat').innerHTML = treatments[v].map(t => `<option>${t}</option>`).join('');
-    bk.treat = treatments[v][0];
-    renderSum();
-  }
-  $$('#bkSpec .opt').forEach(o => o.addEventListener('click', () => selectBkSpec(o.dataset.v)));
-  $('#bkTreat').addEventListener('change', e => { bk.treat = e.target.value; renderSum(); });
-
-  const DOW = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-  const MON = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-  const days = []; const d0 = new Date(); d0.setHours(0, 0, 0, 0);
-  for (let i = 1; days.length < 12; i++) { const d = new Date(d0); d.setDate(d.getDate() + i); if (d.getDay() > 0 && d.getDay() < 6) days.push(d); }
-  const times = { 'Mañana': ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00'], 'Tarde': ['16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30'] };
-  const busy = (d, t) => ((d.getDate() * 7 + parseInt(t) * 3 + (t.endsWith('30') ? 5 : 0)) % 5) === 0;
-  const dayLabel = (d) => `${DOW[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]}`;
-  $('#days').innerHTML = days.map((d, i) => `<button type="button" class="day" data-i="${i}" aria-pressed="false"><small>${DOW[d.getDay()]}</small><b>${d.getDate()}</b><small>${MON[d.getMonth()]}</small></button>`).join('');
-  function renderSlots() {
-    const d = days[bk.day];
-    $('#slotsWrap').innerHTML = Object.entries(times).map(([g, ts]) => `<span class="slot-group">${g}</span><div class="slots">${ts.map(t => `<button type="button" class="slot" data-t="${t}" ${busy(d, t) ? 'disabled' : ''} aria-pressed="${bk.slot === t}">${t}</button>`).join('')}</div>`).join('');
-    $$('.slot').forEach(s => s.addEventListener('click', () => { bk.slot = s.dataset.t; $$('.slot').forEach(x => x.setAttribute('aria-pressed', x === s)); renderSum(); }));
-  }
-  function pickDay(i) { bk.day = i; bk.slot = null; $$('.day').forEach(x => x.setAttribute('aria-pressed', +x.dataset.i === i)); renderSlots(); renderSum(); }
-  $$('.day').forEach(b => b.addEventListener('click', () => pickDay(+b.dataset.i)));
-  pickDay(0);
-  const first = times['Mañana'].find(t => !busy(days[0], t)) || '16:30';
-  $('#nextSlot').textContent = `Próximo hueco: ${dayLabel(days[0]).toLowerCase()}, ${first}`;
-
-  function renderSum() {
-    const parts = [`<b>${bk.treat}</b>`];
-    if (bk.step >= 2 && bk.day != null) parts.push(dayLabel(days[bk.day]) + (bk.slot ? ' · ' + bk.slot : ''));
-    $('#sum').innerHTML = parts.join(' · ');
-  }
-  function go(step) {
-    bk.step = step;
-    ['#st1', '#st2', '#st3', '#st4'].forEach((s, i) => $(s).hidden = i + 1 !== step);
-    ['#p1', '#p2', '#p3'].forEach((p, i) => $(p).classList.toggle('on', i < step));
-    $('#back').hidden = step === 1 || step === 4;
-    $('#foot').hidden = step === 4;
-    $('#next').innerHTML = step === 3 ? 'Confirmar cita <span class="arr">→</span>' : 'Continuar <span class="arr">→</span>';
-    renderSum();
-  }
-  $('#next').addEventListener('click', () => {
-    if (bk.step === 2 && !bk.slot) { toast('Elige una hora para continuar'); return; }
-    if (bk.step === 3) {
-      if (!$('#fName').value.trim() || !$('#fPhone').value.trim()) { toast('Indica tu nombre y teléfono'); return; }
-      if (!$('#fOk').checked) { toast('Acepta la política de privacidad'); return; }
-      $('#doneTxt').innerHTML = `<b>${$('#fName').value.trim()}</b>, hemos registrado tu solicitud de <b>${bk.treat}</b> para el <b>${dayLabel(days[bk.day])}</b> a las <b>${bk.slot}</b>. La clínica te confirmará la cita por WhatsApp.`;
-      go(4); return;
-    }
-    go(bk.step + 1);
-  });
-  $('#st3').addEventListener('submit', e => { e.preventDefault(); $('#next').click(); });
-  $('#back').addEventListener('click', () => go(bk.step - 1));
-  $('#restart').addEventListener('click', () => { pickDay(0); go(1); });
-  selectBkSpec('Dental'); go(1);
-
-  /* Copiar contacto */
-  $$('.copy').forEach(b => b.addEventListener('click', () => {
-    const v = b.dataset.copy;
-    navigator.clipboard?.writeText(v).then(() => toast('Copiado: ' + v)).catch(() => toast(v));
-    if (!navigator.clipboard) toast(v);
-  }));
-
-  /* Opiniones */
-  const quotes = [
-    ['“Me hice las carillas y por fin sonrío en las fotos. Me enseñaron el diseño antes de empezar y el resultado es exactamente ese.”', 'Marta G.', 'Carillas · Unidad dental'],
-    ['“Tres meses después del injerto ya noto la diferencia. Trato cercano y seguimiento constante por WhatsApp.”', 'Javier R.', 'Injerto FUE · Unidad capilar'],
-    ['“Muy natural. Nadie sabe que me he hecho algo, solo me dicen que se me ve descansada.”', 'Claudia M.', 'Ácido hialurónico · Unidad estética'],
-    ['“Wonderful English-speaking team, clear pricing and a beautiful clinic. Highly recommended.”', 'Sarah K.', 'Whitening · Dental unit']
-  ];
-  let qi = 0;
-  $('#qDots').innerHTML = quotes.map((_, i) => `<button type="button" aria-label="Opinión ${i + 1}"></button>`).join('');
-  function showQ(i) {
-    qi = i; const q = quotes[i];
-    $('#quote').style.opacity = 0;
-    setTimeout(() => { $('#quote').textContent = q[0]; $('#qBy').textContent = q[1]; $('#qT').textContent = q[2]; $('#quote').style.opacity = 1; }, reduce ? 0 : 200);
-    $$('#qDots button').forEach((b, j) => b.setAttribute('aria-current', j === i));
-  }
-  $$('#qDots button').forEach((b, i) => b.addEventListener('click', () => showQ(i)));
-  $('#quote').textContent = quotes[0][0]; $('#qBy').textContent = quotes[0][1]; $('#qT').textContent = quotes[0][2];
-  $$('#qDots button')[0].setAttribute('aria-current', 'true');
-  if (!reduce) setInterval(() => showQ((qi + 1) % quotes.length), 7000);
 
   /* Financiación */
   const fin = () => {
@@ -995,35 +853,87 @@ footer .big { font-family: var(--f-display); font-size: clamp(2.4rem, 1.4rem + 4
   };
   $('#amt').addEventListener('input', fin); $('#mon').addEventListener('input', fin); fin();
 
-  /* Instagram (mosaico de muestra) */
-  const ig = [['#1B3E4A', '#C98F62', 'Antes / después'], ['#E3D2B0', '#A9834A', 'Carillas'], ['#173F4A', '#2E5D69', 'Nuestra clínica'], ['#C98F62', '#F0C99A', 'Labios naturales'], ['#15191B', '#4A5154', 'Injerto FUE'], ['#A9834A', '#E2DDD2', 'Equipo']];
-  $('#ig').innerHTML = ig.map(g => `<a class="ig" href="https://www.instagram.com/clinicaelitepalma/" target="_blank" rel="noopener" style="background:linear-gradient(150deg, ${g[0]}, ${g[1]})"><span>${g[2]}</span></a>`).join('');
+  /* Horario y estado abierto */
+  const H = [['Lunes', 1], ['Martes', 2], ['Miércoles', 3], ['Jueves', 4], ['Viernes', 5], ['Sábado', 6], ['Domingo', 0]];
+  const now = new Date(), dow = now.getDay(), mins = now.getHours() * 60 + now.getMinutes();
+  $('#hours tbody').innerHTML = H.map(([n, d]) => `<tr class="${d === dow ? 'today' : ''}"><td>${n}${d === dow ? ' · hoy' : ''}</td><td>${d >= 1 && d <= 5 ? '10:00–13:30 · 16:30–20:00' : 'Cerrado'}</td></tr>`).join('');
+  const isOpen = dow >= 1 && dow <= 5 && ((mins >= 600 && mins < 810) || (mins >= 990 && mins < 1200));
+  if (!isOpen) { $('#openNow').classList.add('closed'); $('#openNow span:last-child').textContent = 'Cerrado ahora · reserva online 24 h'; }
 
-  /* Asistente */
-  const answers = {
-    '¿Cuánto cuesta un blanqueamiento?': 'El precio depende del tipo de blanqueamiento. La primera valoración es gratuita y sales con el presupuesto por escrito. ¿Quieres reservarla?',
-    'Horario': 'Abrimos de lunes a viernes, de 10:00 a 13:30 y de 16:30 a 20:00.',
-    '¿Dónde estáis?': 'En Carrer del Cardenal Rossell, 17, Coll d\'en Rabassa (Palma), muy cerca del aeropuerto.',
-    'Reservar cita': 'Perfecto, te llevo al calendario de reserva.'
-  };
-  const chatB = $('#chatB');
-  $('#chatQ').innerHTML = Object.keys(answers).map(k => `<button type="button">${k}</button>`).join('');
-  $$('#chatQ button').forEach(b => b.addEventListener('click', () => {
-    const k = b.textContent;
-    chatB.insertAdjacentHTML('beforeend', `<div class="msg me">${k}</div>`);
-    setTimeout(() => {
-      chatB.insertAdjacentHTML('beforeend', `<div class="msg">${answers[k]}</div>`);
-      chatB.scrollTop = chatB.scrollHeight;
-      if (k === 'Reservar cita') setTimeout(() => { location.hash = 'reserva'; }, 600);
-    }, 450);
-    chatB.scrollTop = chatB.scrollHeight;
+  /* Copiar */
+  $$('.copy').forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.copy;
+    if (navigator.clipboard) navigator.clipboard.writeText(v).then(() => toast('Copiado: ' + v)).catch(() => toast(v)); else toast(v);
   }));
-  const toggleChat = (open) => { $('#chat').hidden = !open; $('#chatT').setAttribute('aria-expanded', open); };
-  $('#chatT').addEventListener('click', () => toggleChat($('#chat').hidden));
-  $('#chatX').addEventListener('click', () => toggleChat(false));
 
-  /* Enlaces a la reserva desde otras secciones */
-  $$('a[href="#reserva"]').forEach(a => a.addEventListener('click', () => { if (bk.step === 4) go(1); }));
+  /* Reserva */
+  const treatments = {
+    'Dental': ['Primera visita dental', 'Implantes dentales', 'Carillas de porcelana', 'Blanqueamiento', 'Ortodoncia invisible', 'Higiene y revisión', 'Prótesis sobre implantes', 'Odontología general'],
+    'Medicina estética': ['Primera visita estética', 'Ácido hialurónico', 'Neuromoduladores', 'Calidad de piel'],
+    'Capilar': ['Primera visita capilar', 'Injerto capilar FUE', 'PRP capilar']
+  };
+  const bk = { spec: 'Dental', treat: '', day: 0, slot: null, step: 1 };
+  function selectBkSpec(v, t) {
+    bk.spec = v;
+    $$('#bkSpec .opt').forEach(o => o.setAttribute('aria-pressed', o.dataset.v === v));
+    $('#bkTreat').innerHTML = treatments[v].map(x => `<option${x === t ? ' selected' : ''}>${x}</option>`).join('');
+    bk.treat = t && treatments[v].includes(t) ? t : treatments[v][0];
+    renderSum();
+  }
+  $$('#bkSpec .opt').forEach(o => o.addEventListener('click', () => selectBkSpec(o.dataset.v)));
+  $('#bkTreat').addEventListener('change', e => { bk.treat = e.target.value; renderSum(); });
+
+  const DOW = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+  const MON = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  const days = []; const d0 = new Date(); d0.setHours(0, 0, 0, 0);
+  for (let i = 1; days.length < 12; i++) { const d = new Date(d0); d.setDate(d.getDate() + i); if (d.getDay() > 0 && d.getDay() < 6) days.push(d); }
+  const times = { 'Mañana': ['10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00'], 'Tarde': ['16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30'] };
+  const busy = (d, t) => ((d.getDate() * 7 + parseInt(t) * 3 + (t.endsWith('30') ? 5 : 0)) % 4) === 0;
+  const dayLabel = (d) => `${DOW[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]}`;
+  $('#days').innerHTML = days.map((d, i) => `<button type="button" class="day" data-i="${i}" aria-pressed="false"><small>${DOW[d.getDay()]}</small><b>${d.getDate()}</b><small>${MON[d.getMonth()]}</small></button>`).join('');
+  function renderSlots() {
+    const d = days[bk.day];
+    $('#slotsWrap').innerHTML = Object.entries(times).map(([g, ts]) => `<span class="sg">${g}</span><div class="slots">${ts.map(t => `<button type="button" class="slot" data-t="${t}" ${busy(d, t) ? 'disabled' : ''} aria-pressed="${bk.slot === t}">${t}</button>`).join('')}</div>`).join('');
+    $$('.slot').forEach(s => s.addEventListener('click', () => { bk.slot = s.dataset.t; $$('.slot').forEach(x => x.setAttribute('aria-pressed', x === s)); renderSum(); }));
+  }
+  function pickDay(i) { bk.day = i; bk.slot = null; $$('.day').forEach(x => x.setAttribute('aria-pressed', +x.dataset.i === i)); renderSlots(); renderSum(); }
+  $$('.day').forEach(b => b.addEventListener('click', () => pickDay(+b.dataset.i)));
+  const first = [...times['Mañana'], ...times['Tarde']].find(t => !busy(days[0], t));
+  $('#nextSlot').innerHTML = `<b>Próxima cita libre: ${dayLabel(days[0]).toLowerCase()}, ${first}</b>`;
+
+  function renderSum() {
+    const parts = [`<b>${bk.treat}</b>`];
+    if (bk.step >= 2) parts.push(dayLabel(days[bk.day]) + (bk.slot ? ' · ' + bk.slot : ''));
+    $('#sum').innerHTML = parts.join(' · ');
+  }
+  function go(step) {
+    bk.step = step;
+    ['#st1', '#st2', '#st3', '#st4'].forEach((s, i) => $(s).hidden = i + 1 !== step);
+    ['#p1', '#p2', '#p3'].forEach((p, i) => $(p).classList.toggle('on', i < step));
+    $('#back').hidden = step === 1 || step === 4;
+    $('#foot').hidden = step === 4;
+    $('#next').textContent = step === 3 ? 'Confirmar cita' : 'Continuar';
+    renderSum();
+  }
+  $('#next').addEventListener('click', () => {
+    if (bk.step === 2 && !bk.slot) { toast('Elige una hora para continuar'); return; }
+    if (bk.step === 3) {
+      if (!$('#fName').value.trim() || !$('#fPhone').value.trim()) { toast('Indica tu nombre y teléfono'); return; }
+      if (!$('#fOk').checked) { toast('Acepta la política de privacidad para continuar'); return; }
+      const esc = (s) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      $('#doneTxt').innerHTML = `${esc($('#fName').value.trim())}, hemos recibido tu solicitud de <b>${bk.treat}</b> para el <b>${dayLabel(days[bk.day])}</b> a las <b>${bk.slot}</b>. Te confirmaremos la cita por WhatsApp.`;
+      go(4); return;
+    }
+    go(bk.step + 1);
+  });
+  $('#st3').addEventListener('submit', e => { e.preventDefault(); $('#next').click(); });
+  $('#back').addEventListener('click', () => go(bk.step - 1));
+  $('#restart').addEventListener('click', () => { pickDay(0); go(1); });
+
+  pickDay(0);
+  selectBkSpec('Dental');
+  go(1);
+  setFilter('all');
 })();
 </script>
 </body>
